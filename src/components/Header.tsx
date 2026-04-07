@@ -19,7 +19,7 @@ const Header = () => {
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Brand */}
           <NavLink to="/" className="text-xl font-bold text-green-600">
-            Green Build
+            GreenBuild
           </NavLink>
 
           {/* Desktop navigation */}
