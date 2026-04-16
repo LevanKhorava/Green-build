@@ -4,6 +4,10 @@ img {
   vertical-align: initial;
 }
 
+.continuous-slider .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
