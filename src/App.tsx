@@ -5,7 +5,6 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import News from "./pages/News";
 import Reviews from "./pages/Reviews";
-import Pay from "./pages/Pay";
 
 function App() {
   console.log("App component rendered/////");
@@ -17,7 +16,6 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/news" element={<News />} />
         <Route path="/reviews" element={<Reviews />} />
-        <Route path="/pay" element={<Pay />} />
       </Route>
     </Routes>
   );
