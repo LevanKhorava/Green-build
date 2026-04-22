@@ -8,6 +8,7 @@ import Reviews from "./pages/Reviews";
 import Pay from "./pages/Pay";
 
 function App() {
+  console.log("App component rendered/////");
   return (
     <Routes>
       <Route element={<Layout />}>
