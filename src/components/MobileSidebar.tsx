@@ -11,6 +11,7 @@ const navLinks = [
   { to: "/projects", label: "პროექტები" },
   { to: "/news", label: "სიახლეები" },
   { to: "/reviews", label: "შეფასებები" },
+  { to: "/pay", label: "გადახდა" },
 ];
 
 const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
