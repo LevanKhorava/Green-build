@@ -85,11 +85,11 @@ const Projects = () => {
       <h1 className="text-3xl font-bold mb-2">პროექტები</h1>
       <p className="text-gray-500 mb-8">აირჩიეთ სართული დეტალების სანახავად</p>
 
-      <div className="relative w-full max-w-3xl mx-auto select-none bg-gray-900 rounded-xl overflow-hidden">
+      <div className="relative w-full max-w-3xl mx-auto select-none bg-gray-900 rounded-2xl  overflow-hidden">
         <img
           src={buildingImg}
           alt="GreenBuild საცხოვრებელი კორპუსი"
-          className="w-full h-160 block object-cover object-bottom"
+          className="w-full h-auto  block  "
           draggable={false}
         />
 
