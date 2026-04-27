@@ -7,7 +7,6 @@ import News from "./pages/News";
 import Reviews from "./pages/Reviews";
 
 function App() {
-  console.log("App component rendered/////");
   return (
     <Routes>
       <Route element={<Layout />}>
