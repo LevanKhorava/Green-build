@@ -94,8 +94,8 @@ const NewsCard = ({
         <div
           className={`absolute inset-0 transition-colors duration-500 ${
             isActive
-              ? "bg-gradient-to-t from-green-900/60 to-transparent"
-              : "bg-gradient-to-t from-gray-900/60 to-transparent"
+              ? "bg-linear-to-t from-green-900/60 to-transparent"
+              : "bg-linear-to-t from-gray-900/60 to-transparent"
           }`}
         />
         <span
@@ -173,9 +173,7 @@ const NewsSection = () => {
       <div className="relative max-w-6xl mx-auto px-4">
         <div
           className={`text-center mb-10 sm:mb-14 transition-all duration-700 ease-out ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
@@ -188,9 +186,7 @@ const NewsSection = () => {
 
         <div
           className={`mb-10 sm:mb-14 transition-all duration-700 ease-out delay-300 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <Swiper
@@ -220,9 +216,7 @@ const NewsSection = () => {
 
         <div
           className={`text-center transition-all duration-700 ease-out delay-500 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <Link
