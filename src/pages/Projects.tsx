@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import buildingImg from "../assets/greenBuild.png";
 
 interface Floor {
@@ -68,14 +69,9 @@ const floors: Floor[] = [
   },
 ];
 
-function getPolygonCenter(clipPath: string) {
-  const nums = clipPath.match(/[\d.]+/g)!.map(Number);
-  const ys = [nums[1], nums[3], nums[5], nums[7]];
-  return { left: nums[0], top: (Math.min(...ys) + Math.max(...ys)) / 2 };
-}
-
 const Projects = () => {
   const [hoveredFloor, setHoveredFloor] = useState<number | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
 
   const activeFloor = floors.find((f) => f.id === selectedFloor);
@@ -92,6 +88,20 @@ const Projects = () => {
           className="w-full h-auto  block  "
           draggable={false}
         />
+
+        {hoveredFloor != null &&
+          createPortal(
+            <span
+              className="fixed z-50 pointer-events-none text-white text-xs sm:text-sm font-semibold bg-green-600/90 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md whitespace-nowrap"
+              style={{
+                left: mousePos.x + 12,
+                top: mousePos.y - 28,
+              }}
+            >
+              {floors.find((f) => f.id === hoveredFloor)?.label}
+            </span>,
+            document.body,
+          )}
 
         {floors.map((floor) => {
           const isHovered = hoveredFloor === floor.id;
@@ -116,6 +126,7 @@ const Projects = () => {
               }}
               onMouseEnter={() => setHoveredFloor(floor.id)}
               onMouseLeave={() => setHoveredFloor(null)}
+              onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
               onClick={() =>
                 setSelectedFloor(selectedFloor === floor.id ? null : floor.id)
               }
@@ -127,26 +138,7 @@ const Projects = () => {
                   );
                 }
               }}
-            >
-              {(() => {
-                const center = getPolygonCenter(floor.clipPath);
-                return (
-                  <span
-                    className={`absolute text-white text-xs sm:text-sm font-semibold
-                      bg-green-600/90 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md whitespace-nowrap
-                      -translate-y-1/2 transition-opacity duration-300 ${
-                        isSelected || isHovered ? "opacity-100" : "opacity-0"
-                      }`}
-                    style={{
-                      left: `${center.left + 1}%`,
-                      top: `${center.top}%`,
-                    }}
-                  >
-                    {floor.label}
-                  </span>
-                );
-              })()}
-            </div>
+            />
           );
         })}
       </div>
