@@ -19,28 +19,28 @@ const floors: Floor[] = [
   {
     id: 7,
     label: "სართული 7",
-    clipPath: "polygon(20% 45%, 75% 50.5%, 74% 55.5%, 20% 50%)",
+    clipPath: "polygon(21.5% 28.9%, 71.4% 43.7%, 71.5% 48.7%, 21.2% 36%)",
     apartmentCount: 6,
     status: "available",
   },
   {
     id: 6,
     label: "სართული 6",
-    clipPath: "polygon(20% 50%, 74% 55.5%, 73% 60.5%, 20% 55%)",
+    clipPath: "polygon(21.2% 36.4%, 71.5% 49%, 71.6% 54%, 21% 43.3%)",
     apartmentCount: 6,
     status: "available",
   },
   {
     id: 5,
     label: "სართული 5",
-    clipPath: "polygon(20% 55%, 73% 60.5%, 72% 65.5%, 20% 60%)",
+    clipPath: "polygon(21% 43.8%, 71.7% 54.5%, 71.8% 59.5%, 20.8% 51%)",
     apartmentCount: 8,
     status: "coming-soon",
   },
   {
     id: 4,
     label: "სართული 4",
-    clipPath: "polygon(20% 60%, 72% 65.5%, 71% 70.5%, 20% 65%)",
+    clipPath: "polygon(20.8% 51.8%, 71.8% 59.8%, 71.8% 64.7%, 20.5% 59%)",
     apartmentCount: 8,
     status: "available",
   },
@@ -48,21 +48,21 @@ const floors: Floor[] = [
     id: 3,
     label: "სართული 3",
     // clipPath: "polygon(20% 70%, 71% 73.1%, 70% 78.1%, 20% 75%)",
-    clipPath: "polygon(20.5% 66%, 71.8% 70.5%, 72% 75.5%, 20.2% 72.5%)",
+    clipPath: "polygon(20.5% 59.5%, 71.9% 65.3%, 72% 70%, 20.2% 66.6%)",
     apartmentCount: 8,
     status: "sold-out",
   },
   {
     id: 2,
     label: "სართული 2",
-    clipPath: "polygon(20% 73%, 72% 75.8%, 72% 80%, 20% 79%)",
+    clipPath: "polygon(20.3% 67.3%, 72% 70.8%, 72% 76%, 20% 75%)",
     apartmentCount: 8,
     status: "available",
   },
   {
     id: 1,
     label: "სართული 1",
-    clipPath: "polygon(19.5% 80%, 73% 80.5%, 74% 85.5%, 20% 85%)",
+    clipPath: "polygon(18.5% 75.3%, 72% 76.5%, 72% 81%, 18.5% 83%)",
     apartmentCount: 4,
     status: "sold-out",
   },
@@ -89,7 +89,7 @@ const Projects = () => {
         <img
           src={buildingImg}
           alt="GreenBuild საცხოვრებელი კორპუსი"
-          className="w-full h-auto block"
+          className="w-full h-160 block object-cover object-bottom"
           draggable={false}
         />
 
