@@ -18,14 +18,9 @@ const Header = () => {
     const onScroll = () => {
       const isScrolled = window.scrollY >= 50;
       setScrolled(isScrolled);
-      document.body.style.backgroundColor = isScrolled ? "#ffffff" : "#166534";
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      document.body.style.backgroundColor = "";
-    };
   }, [scrolled]);
 
   return (
