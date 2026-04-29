@@ -29,6 +29,7 @@ const Header = () => {
             ? "bg-white shadow-sm"
             : "bg-linear-to-br from-green-700 to-green-900"
         }`}
+        style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <NavLink
