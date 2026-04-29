@@ -170,7 +170,7 @@ const Projects = () => {
     floorsA.find((f) => f.id === selectedFloor);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
       <h1 className="text-3xl font-bold mb-2">პროექტები</h1>
       <p className="text-gray-500 mb-8">აირჩიეთ სართული დეტალების სანახავად</p>
 

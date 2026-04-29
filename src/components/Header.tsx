@@ -15,7 +15,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    console.log("Header mounted, setting up scroll listener");
     const onScroll = () => {
       const isScrolled = window.scrollY >= 50;
       setScrolled(isScrolled);
