@@ -15,19 +15,25 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    console.log("Header mounted, setting up scroll listener");
+    const onScroll = () => {
+      const isScrolled = window.scrollY >= 50;
+      setScrolled(isScrolled);
+      document.body.style.backgroundColor = isScrolled ? "#ffffff" : "#166534";
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.body.style.backgroundColor = "";
+    };
+  }, [scrolled]);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
-          scrolled
-            ? "bg-white shadow-sm"
-            : "bg-linear-to-br from-green-700 to-green-900"
+          scrolled ? "bg-white shadow-sm" : "bg-[#166534]"
         }`}
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
