@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 
@@ -12,17 +12,34 @@ const navLinks = [
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-30 bg-white shadow-sm">
+      <header
+        className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
+          scrolled
+            ? "bg-white shadow-sm"
+            : "bg-linear-to-br from-green-700 to-green-900"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Brand */}
-          <NavLink to="/" className="text-xl font-bold text-green-600">
+          <NavLink
+            to="/"
+            className={`text-xl font-bold transition-colors duration-300 ${
+              scrolled ? "text-green-600" : "text-white"
+            }`}
+          >
             GreenBuild
           </NavLink>
 
-          {/* Desktop navigation */}
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <NavLink
@@ -30,10 +47,14 @@ const Header = () => {
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-green-600"
-                      : "text-gray-700 hover:text-green-600"
+                  `text-sm font-medium transition-colors duration-300 ${
+                    scrolled
+                      ? isActive
+                        ? "text-green-600"
+                        : "text-gray-700 hover:text-green-600"
+                      : isActive
+                        ? "text-white"
+                        : "text-green-100 hover:text-white"
                   }`
                 }
               >
@@ -42,17 +63,23 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop contact button */}
           <a
             href="tel:+995599000000"
-            className="hidden md:inline-flex bg-green-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+            className={`hidden md:inline-flex py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              scrolled
+                ? "bg-green-600 text-white hover:bg-green-700"
+                : "border border-white text-white hover:bg-white/10"
+            }`}
           >
             დაგვიკავშირდით
           </a>
 
-          {/* Mobile hamburger button */}
           <button
-            className="md:hidden text-gray-700 hover:text-gray-900"
+            className={`md:hidden transition-colors duration-300 ${
+              scrolled
+                ? "text-gray-700 hover:text-gray-900"
+                : "text-white hover:text-green-100"
+            }`}
             onClick={() => setSidebarOpen(true)}
             aria-label="Open menu"
           >
