@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import buildingImg from "../assets/greenBuild.png";
 
@@ -164,6 +164,17 @@ const Projects = () => {
   const [hoveredFloor, setHoveredFloor] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  const handleSelectFloor = (floorId: number) => {
+    const newSelection = selectedFloor === floorId ? null : floorId;
+    setSelectedFloor(newSelection);
+    if (newSelection !== null) {
+      setTimeout(() => {
+        detailsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
+    }
+  };
 
   const activeFloor =
     floorsB.find((f) => f.id === selectedFloor) ||
@@ -223,14 +234,12 @@ const Projects = () => {
               onMouseLeave={() => setHoveredFloor(null)}
               onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
               onClick={() =>
-                setSelectedFloor(selectedFloor === floor.id ? null : floor.id)
+                handleSelectFloor(floor.id)
               }
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  setSelectedFloor(
-                    selectedFloor === floor.id ? null : floor.id,
-                  );
+                  handleSelectFloor(floor.id);
                 }
               }}
             />
@@ -262,14 +271,12 @@ const Projects = () => {
               onMouseLeave={() => setHoveredFloor(null)}
               onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
               onClick={() =>
-                setSelectedFloor(selectedFloor === floor.id ? null : floor.id)
+                handleSelectFloor(floor.id)
               }
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  setSelectedFloor(
-                    selectedFloor === floor.id ? null : floor.id,
-                  );
+                  handleSelectFloor(floor.id);
                 }
               }}
             />
@@ -279,6 +286,7 @@ const Projects = () => {
 
       {activeFloor && (
         <div
+          ref={detailsRef}
           key={activeFloor.id}
           className="mt-6 max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-gray-100 p-6 sm:p-8 animate-[fadeSlideUp_0.4s_ease-out_both]"
         >
