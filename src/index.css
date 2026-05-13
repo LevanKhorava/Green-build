@@ -12,6 +12,17 @@ img {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+@keyframes contact-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -20,5 +31,291 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(15px) scale(0.95);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow-line {
+  0%,
+  100% {
+    opacity: 0.5;
+    width: 60px;
+  }
+  50% {
+    opacity: 1;
+    width: 100px;
+  }
+}
+
+@keyframes gate-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes gate-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes gate-logo-fade {
+  0%,
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes build-up {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.07;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0.07;
+  }
+}
+
+@keyframes crane-swing {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes crane-cable {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.15);
+  }
+}
+
+@keyframes scaffold-draw {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.1;
+  }
+}
+
+@keyframes brick-place {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 0.12;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brick-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-10deg);
+  }
+  60% {
+    opacity: 0.1;
+    transform: translateY(4px) rotate(2deg);
+  }
+  80% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  100% {
+    opacity: 0.1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes skyline-reveal {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes measure-line {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.12;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.12;
+  }
+}
+
+@keyframes beam-lift {
+  0% {
+    transform: translateY(30px) rotate(5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes weld-spark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--spark-x), var(--spark-y)) scale(0);
+  }
+}
+
+@keyframes weld-glow {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  15%,
+  40% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50%,
+  80% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes mixer-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dust-puff {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(0);
+  }
+  30% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2) translateY(-20px);
+  }
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes elevator-move {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-60px);
+  }
+}
+
+@keyframes hammer-hit {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-30deg);
+  }
+  90% {
+    transform: rotate(5deg);
   }
 }
