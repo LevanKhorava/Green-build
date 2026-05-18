@@ -72,12 +72,12 @@ const StatCard = ({
       >
         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 tabular-nums">
           {count.toLocaleString()}
-          {stat.suffix && <span className="text-green-300">{stat.suffix}</span>}
+          {stat.suffix && <span className="text-[#e6f4ec]">{stat.suffix}</span>}
         </div>
-        <div className="text-green-200 text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
+        <div className="text-[#e6f4ec] text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
           {stat.label}
         </div>
-        <div className="absolute inset-0 rounded-2xl bg-green-400/0 group-hover:bg-green-400/5 transition-colors duration-500" />
+        <div className="absolute inset-0 rounded-2xl bg-[#e6f4ec]/0 group-hover:bg-[#e6f4ec]/5 transition-colors duration-500" />
       </div>
     </div>
   );
@@ -108,13 +108,13 @@ const StatsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-linear-to-br from-green-800 via-green-900 to-emerald-950 py-12 sm:py-16 md:py-24 lg:py-28 overflow-hidden"
+      className="relative bg-[#1f3f3a] py-12 sm:py-16 md:py-24 lg:py-28 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-green-600/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-100 sm:h-100 md:w-150 md:h-150 bg-green-500/5 rounded-full blur-3xl" />
+        <div className="absolute -top-24 -left-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#e6f4ec]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#e6f4ec]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-100 sm:h-100 md:w-150 md:h-150 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4">
@@ -124,7 +124,7 @@ const StatsSection = () => {
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4"></h2>
-          <p className="text-green-200/80 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-[#e6f4ec]/80 text-base sm:text-lg max-w-2xl mx-auto">
             წლების განმავლობაში ჩვენ შევქმენით საიმედო სივრცეები ათასობით
             ოჯახისთვის
           </p>
@@ -148,8 +148,8 @@ const StatsSection = () => {
         >
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 bg-white text-green-800 font-semibold px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
-              hover:bg-green-50 hover:shadow-lg hover:shadow-green-900/30 hover:scale-105
+            className="inline-flex items-center gap-2 bg-white text-[#1f3f3a] font-semibold px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
+              hover:bg-[#e6f4ec] hover:shadow-lg hover:shadow-[#1f3f3a]/30 hover:scale-105
               active:scale-95 transition-all duration-300"
           >
             მეტის ნახვა

@@ -52,7 +52,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-linear-to-br from-green-700 to-green-900 text-white pt-20 overflow-hidden">
+    <section className="relative  bg-[#26b462] text-white pt-20 overflow-hidden">
       {/* ── Gate overlay ── */}
       <div className="fixed inset-0 z-40 pointer-events-none">
         <div

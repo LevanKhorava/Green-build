@@ -34,7 +34,7 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
         <div className="flex justify-end p-4">
           <button
             onClick={onClose}
-            className="text-gray-600 hover:text-gray-900"
+            className="text-[#333333] hover:text-[#333333]"
             aria-label="Close menu"
           >
             <svg
@@ -64,8 +64,8 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
               className={({ isActive }) =>
                 `py-3 px-4 rounded-lg text-base font-medium transition-colors ${
                   isActive
-                    ? "bg-green-50 text-green-600"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-[#e6f4ec] text-[#1f3f3a]"
+                    : "text-[#333333] hover:bg-gray-100"
                 }`
               }
             >
@@ -78,7 +78,7 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
         <div className="px-4 mt-6">
           <a
             href="tel:+995599000000"
-            className="block w-full text-center bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors"
+            className="block w-full text-center bg-[#1f3f3a] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#1f3f3a]/80 transition-colors"
           >
             დაგვიკავშირდით
           </a>

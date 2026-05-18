@@ -152,16 +152,16 @@ const About = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-linear-to-br from-green-700 to-green-900 text-white overflow-hidden">
+      <section className="relative bg-[#26b462] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-green-500/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-emerald-400/10 rounded-full blur-3xl" />
+          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/15 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             ჩვენს შესახებ
           </h1>
-          <p className="text-base md:text-lg text-green-100 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-[#e6f4ec] max-w-2xl mx-auto leading-relaxed">
             Green Build — ჩვენ ვქმნით მდგრად, ეკოლოგიურად სუფთა და თანამედროვე
             საცხოვრებელ სივრცეებს. ჩვენი მისია არის ხარისხიანი ცხოვრების
             სტანდარტის დამკვიდრება საქართველოში.
@@ -170,7 +170,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section ref={valuesRef} className="bg-white py-16 md:py-24">
+      <section ref={valuesRef} className="bg-[#f7f9f8] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div
             className={`text-center mb-12 transition-all duration-700 ease-out ${
@@ -179,10 +179,10 @@ const About = () => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
               ჩვენი ღირებულებები
             </h2>
-            <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
+            <p className="text-[#333333] text-base md:text-lg max-w-2xl mx-auto">
               ყველაფერი რასაც ვაკეთებთ ეფუძნება ოთხ ძირითად პრინციპს
             </p>
           </div>
@@ -195,13 +195,13 @@ const About = () => {
                   ${valuesVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0"}`}
                 style={{ animationDelay: `${i * 120}ms` }}
               >
-                <div className="w-14 h-14 rounded-full bg-green-100 text-green-700 flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-full bg-[#e6f4ec] text-[#1f3f3a] flex items-center justify-center mx-auto mb-4">
                   {v.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                <h3 className="text-lg font-bold text-[#333333] mb-2">
                   {v.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-[#333333] leading-relaxed">
                   {v.description}
                 </p>
               </div>
@@ -213,7 +213,7 @@ const About = () => {
       {/* Timeline */}
       <section
         ref={timelineRef}
-        className="relative bg-gray-50 py-16 md:py-24"
+        className="relative bg-[#e6f4ec] py-16 md:py-24"
       >
         <div className="max-w-3xl mx-auto px-4">
           <div
@@ -223,16 +223,16 @@ const About = () => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
               ჩვენი გზა
             </h2>
-            <p className="text-gray-500 text-base md:text-lg">
+            <p className="text-[#333333] text-base md:text-lg">
               კომპანიის განვითარების მნიშვნელოვანი ეტაპები
             </p>
           </div>
 
           <div className="relative">
-            <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-green-200" />
+            <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-[#1f3f3a]/20" />
 
             {timeline.map((item, i) => (
               <div
@@ -242,19 +242,19 @@ const About = () => {
                 } ${timelineVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0"}`}
                 style={{ animationDelay: `${i * 150}ms` }}
               >
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-green-100 z-10 mt-1" />
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#1f3f3a] rounded-full border-4 border-[#e6f4ec] z-10 mt-1" />
                 <div
                   className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
                     i % 2 === 0 ? "md:ml-auto md:pl-10" : "md:mr-auto md:pr-10"
                   }`}
                 >
-                  <span className="inline-block text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full mb-2">
+                  <span className="inline-block text-sm font-bold text-[#1f3f3a] bg-[#e6f4ec] px-3 py-1 rounded-full mb-2">
                     {item.year}
                   </span>
-                  <h3 className="text-lg font-bold text-gray-800 mb-1">
+                  <h3 className="text-lg font-bold text-[#333333] mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
+                  <p className="text-sm text-[#333333] leading-relaxed">
                     {item.description}
                   </p>
                 </div>

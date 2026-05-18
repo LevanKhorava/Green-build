@@ -29,9 +29,9 @@ const BuildingInteractive = ({
         aria-label={`Floor ${floor.id} — ${statusLabels[floor.status]}`}
         className={`absolute transition-all duration-300 cursor-pointer ${
           isSelected
-            ? "bg-green-500/30"
+            ? "bg-[#1f3f3a]/30"
             : isHovered
-              ? "bg-green-500/20"
+              ? "bg-[#1f3f3a]/20"
               : ""
         }`}
         style={{
@@ -54,7 +54,7 @@ const BuildingInteractive = ({
 
   return (
     <div
-      className={`relative w-full select-none bg-gray-900 rounded-2xl overflow-hidden ${className}`}
+      className={`relative w-full select-none bg-[#1f3f3a] rounded-2xl overflow-hidden ${className}`}
     >
       <img
         src={buildingImg}
@@ -66,7 +66,7 @@ const BuildingInteractive = ({
       {hoveredFloor != null &&
         createPortal(
           <span
-            className="fixed z-50 pointer-events-none text-white text-xs sm:text-sm font-semibold bg-green-600/90 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md whitespace-nowrap"
+            className="fixed z-50 pointer-events-none text-white text-xs sm:text-sm font-semibold bg-[#1f3f3a]/90 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md whitespace-nowrap"
             style={{
               left: mousePos.x + 12,
               top: mousePos.y - 28,

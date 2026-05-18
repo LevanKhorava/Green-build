@@ -29,11 +29,11 @@ const ContactFloat = () => {
       {/* Floating button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-30 bg-green-600 text-white rounded-full shadow-lg
-          hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer
+        className="fixed bottom-6 right-6 z-30 bg-[#1f3f3a] text-white rounded-full shadow-lg
+          hover:bg-[#1f3f3a]/80 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer
           flex items-center justify-center px-5 py-3 text-sm font-semibold whitespace-nowrap"
       >
-        <span className="absolute inset-0 rounded-full bg-green-400/40 animate-ping" />
+        <span className="absolute inset-0 rounded-full bg-[#e6f4ec]/40 animate-ping" />
         <span className="relative">
           {isOpen ? "✕" : "დაგვიტოვეთ ნომერი"}
         </span>
@@ -48,12 +48,12 @@ const ContactFloat = () => {
         >
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
             {/* Header */}
-            <div className="bg-linear-to-r from-green-600 to-green-700 px-5 py-4 flex items-center justify-between">
+            <div className="bg-[#1f3f3a] px-5 py-4 flex items-center justify-between">
               <div>
                 <h3 className="text-white font-bold text-sm">
                   დაგვიტოვეთ ნომერი
                 </h3>
-                <p className="text-green-100 text-xs mt-0.5">
+                <p className="text-[#e6f4ec] text-xs mt-0.5">
                   ჩვენ მალე დაგიკავშირდებით
                 </p>
               </div>
@@ -77,13 +77,13 @@ const ContactFloat = () => {
             {/* Body */}
             <div className="p-5">
               {submitted ? (
-                <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 text-center text-sm">
+                <div className="bg-[#e6f4ec] border border-[#1f3f3a]/20 text-[#1f3f3a] rounded-lg p-4 text-center text-sm">
                   მადლობა! ჩვენ მალე დაგიკავშირდებით.
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                    <label className="block text-xs font-medium text-[#333333] mb-1">
                       სახელი
                     </label>
                     <input
@@ -93,11 +93,11 @@ const ContactFloat = () => {
                       onChange={(e) =>
                         setForm({ ...form, firstName: e.target.value })
                       }
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                    <label className="block text-xs font-medium text-[#333333] mb-1">
                       გვარი
                     </label>
                     <input
@@ -107,11 +107,11 @@ const ContactFloat = () => {
                       onChange={(e) =>
                         setForm({ ...form, lastName: e.target.value })
                       }
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                    <label className="block text-xs font-medium text-[#333333] mb-1">
                       ტელეფონის ნომერი
                     </label>
                     <input
@@ -122,12 +122,12 @@ const ContactFloat = () => {
                         setForm({ ...form, phone: e.target.value })
                       }
                       placeholder="+995 5XX XXX XXX"
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-green-600 text-white font-semibold py-2.5 rounded-lg text-sm hover:bg-green-700 transition-colors cursor-pointer"
+                    className="w-full bg-[#1f3f3a] text-white font-semibold py-2.5 rounded-lg text-sm hover:bg-[#1f3f3a]/80 transition-colors cursor-pointer"
                   >
                     გაგზავნა
                   </button>

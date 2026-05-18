@@ -27,7 +27,7 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-sm" : "bg-[#166534]"
+          scrolled ? "bg-white shadow-sm" : "bg-[#26b462]"
         }`}
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >

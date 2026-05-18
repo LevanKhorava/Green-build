@@ -8,15 +8,15 @@ const ProjectDetail = () => {
   if (id !== "1") {
     return (
       <div className="max-w-4xl mx-auto px-4 py-24 text-center">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+        <h1 className="text-2xl font-bold text-[#333333] mb-4">
           პროექტი ვერ მოიძებნა
         </h1>
-        <p className="text-gray-500 mb-6">
+        <p className="text-[#333333] mb-6">
           მითითებული პროექტი არ არსებობს.
         </p>
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-green-700 font-semibold hover:text-green-800 transition-colors"
+          className="inline-flex items-center gap-2 text-[#1f3f3a] font-semibold hover:text-[#1f3f3a]/70 transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,10 +39,10 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
+    <div className="max-w-5xl mx-auto px-4 py-12 bg-[#f7f9f8]">
       <Link
         to="/projects"
-        className="inline-flex items-center gap-2 text-green-700 font-medium hover:text-green-800 transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-[#1f3f3a] font-medium hover:text-[#1f3f3a]/70 transition-colors mb-6"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const ProjectDetail = () => {
       <h1 className="text-3xl font-bold mb-2">
         გრინ ბილდის საცხოვრებელი კომპლექსი
       </h1>
-      <p className="text-gray-500 mb-8">აირჩიეთ სართული დეტალების სანახავად</p>
+      <p className="text-[#333333] mb-8">აირჩიეთ სართული დეტალების სანახავად</p>
 
       <BuildingInteractive
         onFloorClick={(floor) => navigate(`/projects/${id}/floor/${floor.id}`)}

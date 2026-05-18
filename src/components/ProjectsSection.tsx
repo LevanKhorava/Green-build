@@ -65,10 +65,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
         />
       </div>
       <div className="p-4 sm:p-5 flex-1">
-        <h3 className="text-lg font-bold text-gray-800 mb-1">
+        <h3 className="text-lg font-bold text-[#333333] mb-1">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-2">
+        <p className="text-sm text-[#333333] line-clamp-2">
           {project.description}
         </p>
       </div>
@@ -99,17 +99,17 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-12 sm:py-16 md:py-24">
+    <section ref={sectionRef} className="bg-[#f7f9f8] py-12 sm:py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
         <div
           className={`text-center mb-8 sm:mb-12 transition-all duration-700 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-3 sm:mb-4">
             ჩვენი პროექტები
           </h2>
-          <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-[#333333] text-base sm:text-lg max-w-2xl mx-auto">
             ჩვენ ვაშენებთ თანამედროვე და მდგრად შენობებს, რომლებიც აკმაყოფილებს
             უმაღლეს სტანდარტებს
           </p>
@@ -151,9 +151,9 @@ const ProjectsSection = () => {
         >
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 bg-green-600 text-white font-semibold
+            className="inline-flex items-center gap-2 bg-[#1f3f3a] text-white font-semibold
               px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
-              hover:bg-green-700 hover:shadow-lg hover:scale-105
+              hover:bg-[#1f3f3a]/80 hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
             მეტის ნახვა

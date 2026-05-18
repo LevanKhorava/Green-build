@@ -36,23 +36,23 @@ const Projects = () => {
   return (
     <div>
       {/* Header */}
-      <section className="relative bg-linear-to-br from-green-700 to-green-900 text-white overflow-hidden">
+      <section className="relative bg-[#26b462] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-green-500/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-emerald-400/10 rounded-full blur-3xl" />
+          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/15 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-3">
             ჩვენი პროექტები
           </h1>
-          <p className="text-green-100 text-base md:text-lg max-w-xl mx-auto">
+          <p className="text-[#e6f4ec] text-base md:text-lg max-w-xl mx-auto">
             აღმოაჩინეთ ჩვენი მიმდინარე და დასრულებული პროექტები
           </p>
         </div>
       </section>
 
       {/* Projects List */}
-      <section ref={gridRef} className="bg-white py-12 md:py-20">
+      <section ref={gridRef} className="bg-[#f7f9f8] py-12 md:py-20">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 gap-8">
             {projectsList.map((project, i) => (
@@ -65,7 +65,7 @@ const Projects = () => {
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="md:flex">
-                  <div className="md:w-1/2 h-64 md:h-auto overflow-hidden bg-gray-900">
+                  <div className="md:w-1/2 h-64 md:h-auto overflow-hidden bg-[#1f3f3a]">
                     <img
                       src={project.imageUrl}
                       alt={project.title}
@@ -75,10 +75,10 @@ const Projects = () => {
                   </div>
                   <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#e6f4ec] text-[#1f3f3a]">
                         {project.status}
                       </span>
-                      <span className="text-xs text-gray-400 flex items-center gap-1">
+                      <span className="text-xs text-[#333333] flex items-center gap-1">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="w-4 h-4"
@@ -101,17 +101,17 @@ const Projects = () => {
                         {project.location}
                       </span>
                     </div>
-                    <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+                    <h2 className="text-xl md:text-2xl font-bold text-[#333333] mb-3">
                       {project.title}
                     </h2>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    <p className="text-[#333333] text-sm leading-relaxed mb-6">
                       {project.description}
                     </p>
                     <div className="flex items-center gap-6 mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-[#333333]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="w-5 h-5 text-green-600"
+                          className="w-5 h-5 text-[#1f3f3a]"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -126,7 +126,7 @@ const Projects = () => {
                         <span>{project.totalApartments} ბინა</span>
                       </div>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                    <span className="inline-flex items-center gap-2 text-[#1f3f3a] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
                       დეტალურად
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

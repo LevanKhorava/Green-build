@@ -17,7 +17,7 @@ const NewsCard = ({
     <div
       className={`rounded-2xl overflow-hidden transition-all duration-500 h-96 flex flex-col ${
         isActive
-          ? "shadow-2xl shadow-green-500/20 border-2 border-green-500 scale-105"
+          ? "shadow-2xl shadow-[#1f3f3a]/20 border-2 border-[#1f3f3a] scale-105"
           : "shadow-md border border-white/10 scale-95 opacity-60"
       }`}
     >
@@ -31,14 +31,14 @@ const NewsCard = ({
         <div
           className={`absolute inset-0 transition-colors duration-500 ${
             isActive
-              ? "bg-linear-to-t from-green-900/60 to-transparent"
-              : "bg-linear-to-t from-gray-900/60 to-transparent"
+              ? "bg-linear-to-t from-[#1f3f3a]/60 to-transparent"
+              : "bg-linear-to-t from-[#1f3f3a]/40 to-transparent"
           }`}
         />
         <span
           className={`absolute bottom-3 left-3 text-xs font-medium px-3 py-1 rounded-full transition-colors duration-500 ${
             isActive
-              ? "bg-green-500 text-white"
+              ? "bg-[#1f3f3a] text-white"
               : "bg-white/20 text-white/80 backdrop-blur-sm"
           }`}
         >
@@ -52,19 +52,19 @@ const NewsCard = ({
       >
         <h3
           className={`text-lg font-bold mb-2 line-clamp-2 transition-colors duration-500 ${
-            isActive ? "text-gray-900" : "text-gray-600"
+            isActive ? "text-[#333333]" : "text-[#333333]"
           }`}
         >
           {item.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-3 flex-1">
+        <p className="text-sm text-[#333333] line-clamp-3 flex-1">
           {item.description}
         </p>
         <div
           className={`mt-3 text-sm font-semibold transition-all duration-500 ${
             isActive
-              ? "text-green-600 translate-x-0 opacity-100"
-              : "text-gray-400 -translate-x-2 opacity-0"
+              ? "text-[#1f3f3a] translate-x-0 opacity-100"
+              : "text-[#333333] -translate-x-2 opacity-0"
           }`}
         >
           ვრცლად →
@@ -100,11 +100,11 @@ const NewsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 py-12 sm:py-16 md:py-24 overflow-hidden"
+      className="relative bg-[#1f3f3a] py-12 sm:py-16 md:py-24 overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-64 h-64 sm:w-96 sm:h-96 bg-green-500/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 bg-green-600/5 rounded-full blur-3xl" />
+        <div className="absolute -top-32 -right-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4">
@@ -116,7 +116,7 @@ const NewsSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             სიახლეები
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-[#e6f4ec]/60 text-base sm:text-lg max-w-2xl mx-auto">
             გაეცანით ჩვენს უახლეს ამბებს და მიღწევებს
           </p>
         </div>
@@ -160,7 +160,7 @@ const NewsSection = () => {
             to="/news"
             className="inline-flex items-center gap-2 border-2 border-white text-white font-semibold
               px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
-              hover:bg-white hover:text-gray-900 hover:shadow-lg hover:scale-105
+              hover:bg-white hover:text-[#333333] hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
             მეტის ნახვა
