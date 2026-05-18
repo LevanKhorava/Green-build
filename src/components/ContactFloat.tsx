@@ -1,16 +1,35 @@
 import { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactFloat = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [form, setForm] = useState({ firstName: "", lastName: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ firstName: "", lastName: "", phone: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    if (!formRef.current) return;
+    setSending(true);
+    setError("");
+
+    try {
+      await emailjs.sendForm(
+        "service_pt6r4de",
+        "template_jkah0qj",
+        formRef.current,
+        { publicKey: "A6m3FkQoJDdswEPDX" },
+      );
+      setSubmitted(true);
+      formRef.current.reset();
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch {
+      setError("გაგზავნა ვერ მოხერხდა. სცადეთ თავიდან.");
+    } finally {
+      setSending(false);
+    }
   };
 
   useEffect(() => {
@@ -34,9 +53,7 @@ const ContactFloat = () => {
           flex items-center justify-center px-5 py-3 text-sm font-semibold whitespace-nowrap"
       >
         <span className="absolute inset-0 rounded-full bg-[#e6f4ec]/40 animate-ping" />
-        <span className="relative">
-          {isOpen ? "✕" : "დაგვიტოვეთ ნომერი"}
-        </span>
+        <span className="relative">{isOpen ? "✕" : "დაგვიტოვეთ ნომერი"}</span>
       </button>
 
       {/* Panel */}
@@ -69,7 +86,11 @@ const ContactFloat = () => {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -81,18 +102,19 @@ const ContactFloat = () => {
                   მადლობა! ჩვენ მალე დაგიკავშირდებით.
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-3">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-3"
+                >
                   <div>
                     <label className="block text-xs font-medium text-[#333333] mb-1">
                       სახელი
                     </label>
                     <input
                       type="text"
+                      name="firstName"
                       required
-                      value={form.firstName}
-                      onChange={(e) =>
-                        setForm({ ...form, firstName: e.target.value })
-                      }
                       className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
@@ -102,11 +124,8 @@ const ContactFloat = () => {
                     </label>
                     <input
                       type="text"
+                      name="lastName"
                       required
-                      value={form.lastName}
-                      onChange={(e) =>
-                        setForm({ ...form, lastName: e.target.value })
-                      }
                       className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
@@ -116,20 +135,23 @@ const ContactFloat = () => {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       required
-                      value={form.phone}
-                      onChange={(e) =>
-                        setForm({ ...form, phone: e.target.value })
-                      }
                       placeholder="+995 5XX XXX XXX"
                       className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#333333] focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:border-transparent transition"
                     />
                   </div>
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-center text-sm">
+                      {error}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="w-full bg-[#1f3f3a] text-white font-semibold py-2.5 rounded-lg text-sm hover:bg-[#1f3f3a]/80 transition-colors cursor-pointer"
+                    disabled={sending}
+                    className="w-full bg-[#1f3f3a] text-white font-semibold py-2.5 rounded-lg text-sm hover:bg-[#1f3f3a]/80 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    გაგზავნა
+                    {sending ? "იგზავნება..." : "გაგზავნა"}
                   </button>
                 </form>
               )}
