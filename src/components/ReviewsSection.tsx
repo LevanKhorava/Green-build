@@ -1,8 +1,64 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { reviews, Stars } from "../data/reviews";
+
+interface Review {
+  id: string;
+  rating: number;
+  text: string;
+  imageUrl: string;
+  name: string;
+  role: string;
+  project: string;
+}
+
+const reviews: Review[] = [
+  {
+    id: "1",
+    rating: 5,
+    text: "ამ კომპანიასთან მუშაობა საოცრად მარტივი და პროფესიონალური იყო. შედეგი ისევ და ისევ აძლევს ჩვენს გუნდს თავდაჯერებულობას.",
+    imageUrl: "https://via.placeholder.com/44",
+    name: "ელენე",
+    role: "მარკეტერი",
+    project: "ვებგვერდის განახლება",
+  },
+  {
+    id: "2",
+    rating: 4,
+    text: "დროის დაცვა და ხარისხი იდეალურად შეთავსებული იყო. მივიღეთ ძლიერი მხარდაჭერა კრეატივისა და ტექნიკური უზრუნველყოფის მხრივ.",
+    imageUrl: "https://via.placeholder.com/44",
+    name: "გიორგი",
+    role: "სტარტაპის დამფუძნებელი",
+    project: "ბრენდინგი",
+  },
+  {
+    id: "3",
+    rating: 5,
+    text: "პროექტი დროულად და ლამაზად შესრულდა. გუნდი სწრაფად ერგო ინიციატივებს და გამოიჩინა მაღალი პროფესიონალიზმი.",
+    imageUrl: "https://via.placeholder.com/44",
+    name: "ანა",
+    role: "UI/UX დიზაინერი",
+    project: "მობილური აპლიკაცია",
+  },
+];
 
 const previewReviews = reviews.slice(0, 3);
+
+const Stars = ({ rating }: { rating: number }) => (
+  <div className="flex items-center gap-1">
+    {Array.from({ length: 5 }, (_, index) => (
+      <svg
+        key={index}
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-4 h-4"
+        viewBox="0 0 20 20"
+        fill={index < rating ? "#f59e0b" : "none"}
+        stroke="#f59e0b"
+      >
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.96a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.449a1 1 0 00-.363 1.118l1.287 3.96c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.372 2.449c-.784.57-1.838-.197-1.539-1.118l1.286-3.96a1 1 0 00-.363-1.118L2.642 9.387c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.287-3.96z" />
+      </svg>
+    ))}
+  </div>
+);
 
 const ReviewsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

@@ -16,7 +16,7 @@ import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import FloorDetail from "./pages/FloorDetail";
 import News from "./pages/News";
-import Reviews from "./pages/Reviews";
+import Videos from "./pages/Videos";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         <Route path="/projects/:id" element={<ProjectDetail />} />
         <Route path="/projects/:id/floor/:floorId" element={<FloorDetail />} />
         <Route path="/news" element={<News />} />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/reviews" element={<Videos />} />
       </Route>
     </Routes>
     </>

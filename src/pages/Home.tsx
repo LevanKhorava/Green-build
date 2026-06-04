@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import StatsSection from "../components/StatsSection";
 import ProjectsSection from "../components/ProjectsSection";
-import ReviewsSection from "../components/ReviewsSection";
+import VideosSection from "../components/VideosSection";
 import NewsSection from "../components/NewsSection";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <Hero />
       <ProjectsSection />
       <StatsSection />
-      <ReviewsSection />
+      <VideosSection />
       <NewsSection />
     </>
   );
