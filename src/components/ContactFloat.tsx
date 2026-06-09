@@ -20,7 +20,7 @@ const ContactFloat = () => {
         "service_vwt8dxq",
         "template_vev4v7k",
         formRef.current,
-        { publicKey: "A6m3FkQoJDdswEPDX" },
+        { publicKey: "2u3CkghhN1yR_Bn0F" },
       );
       setSubmitted(true);
       formRef.current.reset();
