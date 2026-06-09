@@ -3,10 +3,21 @@ import { Link, useParams } from "react-router-dom";
 import { getFloorById, statusLabels } from "../data/floors";
 import flatImg from "../assets/flat.png";
 
+const flatImages = import.meta.glob("../assets/*.png", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const getImageForLabel = (label: string): string => {
+  const num = label.replace(/^ბინა\s+/, "").trim();
+  return flatImages[`../assets/${num}.png`] ?? flatImg;
+};
+
 const FloorDetail = () => {
   const { id, floorId } = useParams<{ id: string; floorId: string }>();
   const floor = getFloorById(Number(floorId));
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<string>(flatImg);
 
   if (!floor) {
     return (
@@ -90,142 +101,105 @@ const FloorDetail = () => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {floor.apartments.map((apt, i) => (
-          <div
-            key={apt.id}
-            className={`rounded-2xl shadow-sm border overflow-hidden transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] cursor-pointer ${
-              apt.sold
-                ? "bg-white border-gray-100"
-                : "bg-white border-gray-100 hover:shadow-lg hover:-translate-y-1"
-            }`}
-            style={{ animationDelay: `${i * 80}ms` }}
-            onClick={() => setLightboxOpen(true)}
-          >
-            <div className="h-44 overflow-hidden relative">
-              <img
-                src={flatImg}
-                alt={apt.label}
-                className="w-full h-full object-cover"
-              />
-              {apt.sold && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-[#ff0000] text-3xl font-black tracking-wider animate-[pulse_2s_ease-in-out_infinite] drop-shadow-[0_0_8px_rgba(255,0,0,0.6)]">
-                    გაყიდულია
-                  </span>
-                </div>
-              )}
-            </div>
-            <div className="p-4">
-              <h3
-                className={`text-lg font-bold mb-3 ${apt.sold ? "text-red-600" : "text-[#333333]"}`}
-              >
-                {apt.label}
-              </h3>
-              <div className="space-y-2">
-                <div
-                  className={`flex items-center gap-3 text-sm ${apt.sold ? "text-red-600/80" : "text-[#333333]"}`}
-                >
-                  <span
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${apt.sold ? "bg-red-100" : "bg-[#e6f4ec]"}`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`w-4 h-4 ${apt.sold ? "text-red-600" : "text-[#1f3f3a]"}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    ოთახები: <strong>{apt.rooms}</strong>
-                  </span>
-                </div>
-                <div
-                  className={`flex items-center gap-3 text-sm ${apt.sold ? "text-red-600/80" : "text-[#333333]"}`}
-                >
-                  <span
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${apt.sold ? "bg-red-100" : "bg-[#e6f4ec]"}`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`w-4 h-4 ${apt.sold ? "text-red-600" : "text-[#1f3f3a]"}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    ფართი: <strong>{apt.size} მ²</strong>
-                  </span>
-                </div>
-                <div
-                  className={`flex items-center gap-3 text-sm ${apt.sold ? "text-red-600/80" : "text-[#333333]"}`}
-                >
-                  <span
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${apt.sold ? "bg-red-100" : "bg-[#e6f4ec]"}`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`w-4 h-4 ${apt.sold ? "text-red-600" : "text-[#1f3f3a]"}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    სააბაზანო: <strong>{apt.bathrooms}</strong>
-                  </span>
-                </div>
-                <div
-                  className={`flex items-center gap-3 text-sm ${apt.sold ? "text-red-600/80" : "text-[#333333]"}`}
-                >
-                  <span
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${apt.sold ? "bg-red-100" : "bg-[#e6f4ec]"}`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`w-4 h-4 ${apt.sold ? "text-red-600" : "text-[#1f3f3a]"}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    ფასი: <strong>${apt.pricePerSqm}/მ²</strong>
-                  </span>
+        {floor.apartments
+          .filter((apt) => !apt.sold)
+          .map((apt, i) => (
+            <div
+              key={apt.id}
+              className="rounded-2xl shadow-sm border border-gray-100 bg-white overflow-hidden transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] cursor-pointer hover:shadow-lg hover:-translate-y-1"
+              style={{ animationDelay: `${i * 80}ms` }}
+              onClick={() => {
+                setLightboxImg(getImageForLabel(apt.label));
+                setLightboxOpen(true);
+              }}
+            >
+              <div className="h-44 overflow-hidden">
+                <img
+                  src={getImageForLabel(apt.label)}
+                  alt={apt.label}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-bold mb-3 text-[#333333]">
+                  {apt.label}
+                </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 text-sm text-[#333333]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[#e6f4ec]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#1f3f3a]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      ოთახები: <strong>{apt.rooms}</strong>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#333333]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[#e6f4ec]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#1f3f3a]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      ფართი: <strong>{apt.size} მ²</strong>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#333333]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[#e6f4ec]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#1f3f3a]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      ხედი:{" "}
+                      <strong>
+                        {apt.side === "front" ? "წინა" : "უკანა"}
+                      </strong>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       {lightboxOpen && (
@@ -242,7 +216,7 @@ const FloorDetail = () => {
             </svg>
           </button>
           <img
-            src={flatImg}
+            src={lightboxImg}
             alt="ბინის გეგმა"
             className="max-w-full max-h-[90vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}

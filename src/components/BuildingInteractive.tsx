@@ -9,17 +9,25 @@ interface BuildingInteractiveProps {
   className?: string;
 }
 
+const isTouch =
+  typeof window !== "undefined" &&
+  window.matchMedia("(hover: none)").matches;
+
 const BuildingInteractive = ({
   onFloorClick,
   selectedFloorId,
   className = "",
 }: BuildingInteractiveProps) => {
   const [hoveredFloor, setHoveredFloor] = useState<number | null>(null);
+  const [pendingFloor, setPendingFloor] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const renderFloorOverlay = (floor: Floor) => {
     const isHovered = hoveredFloor === floor.id;
-    const isSelected = selectedFloorId === floor.id;
+    const isSelected =
+      selectedFloorId === floor.id || pendingFloor === floor.id;
+    const hasAvailable = floor.apartments.some((a) => !a.sold);
+    const flashRed = isSelected && !hasAvailable;
 
     return (
       <div
@@ -29,9 +37,13 @@ const BuildingInteractive = ({
         aria-label={`Floor ${floor.id} — ${statusLabels[floor.status]}`}
         className={`absolute transition-all duration-300 cursor-pointer ${
           isSelected
-            ? "bg-green-500/30"
+            ? flashRed
+              ? "bg-red-500/40"
+              : "bg-green-500/30"
             : isHovered
-              ? "bg-green-500/20"
+              ? hasAvailable
+                ? "bg-green-500/20"
+                : "bg-red-500/30"
               : ""
         }`}
         style={{
@@ -41,9 +53,19 @@ const BuildingInteractive = ({
         onMouseEnter={() => setHoveredFloor(floor.id)}
         onMouseLeave={() => setHoveredFloor(null)}
         onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
-        onClick={() => onFloorClick(floor)}
+        onClick={() => {
+          if (!isTouch) {
+            if (hasAvailable) onFloorClick(floor);
+            return;
+          }
+          setPendingFloor(floor.id);
+          window.setTimeout(() => {
+            setPendingFloor(null);
+            if (hasAvailable) onFloorClick(floor);
+          }, 350);
+        }}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
+          if ((e.key === "Enter" || e.key === " ") && hasAvailable) {
             e.preventDefault();
             onFloorClick(floor);
           }
@@ -64,6 +86,7 @@ const BuildingInteractive = ({
       />
 
       {hoveredFloor != null &&
+        !isTouch &&
         createPortal(
           <span
             className="fixed z-50 pointer-events-none text-white text-xs sm:text-sm font-semibold bg-green-600/90 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md whitespace-nowrap"
@@ -73,8 +96,12 @@ const BuildingInteractive = ({
             }}
           >
             {(() => {
-              const floor = floorsA.find((f) => f.id === hoveredFloor) ?? floorsB.find((f) => f.id === hoveredFloor);
-              return floor ? `${floor.block} Block — ${floor.label}` : "სართული";
+              const floor =
+                floorsA.find((f) => f.id === hoveredFloor) ??
+                floorsB.find((f) => f.id === hoveredFloor);
+              if (!floor) return "სართული";
+              const soldOut = !floor.apartments.some((a) => !a.sold);
+              return `${floor.block} Block — ${floor.label}${soldOut ? " — სრულად გაყიდულია" : ""}`;
             })()}
           </span>,
           document.body,
