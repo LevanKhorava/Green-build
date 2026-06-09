@@ -17,8 +17,8 @@ const ContactFloat = () => {
 
     try {
       await emailjs.sendForm(
-        "service_99kqxhr",
-        "template_jkah0qj",
+        "service_vwt8dxq",
+        "template_vev4v7k",
         formRef.current,
         { publicKey: "A6m3FkQoJDdswEPDX" },
       );
