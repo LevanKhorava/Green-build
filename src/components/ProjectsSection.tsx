@@ -1,80 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "გრინ ჰაუსი I",
-    description: "თანამედროვე საცხოვრებელი კომპლექსი ვაკეში",
-    imageUrl:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop",
-  },
-  {
-    id: 2,
-    title: "გრინ ჰაუსი II",
-    description: "პრემიუმ კლასის ბინები საბურთალოზე",
-    imageUrl:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
-  },
-
-  {
-    id: 4,
-    title: "გრინ პლაზა",
-    description: "მრავალფუნქციური კომპლექსი გლდანში",
-    imageUrl:
-      "https://images.unsplash.com/photo-1554435493-93422e8220c8?w=600&h=400&fit=crop",
-  },
-  {
-    id: 5,
-    title: "გრინ ტაუერი",
-    description: "მაღალსართულიანი საცხოვრებელი ისანში",
-    imageUrl:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop",
-  },
-  {
-    id: 6,
-    title: "გრინ პარკი",
-    description: "პარკთან ახლოს მდებარე კომპლექსი ნუცუბიძეზე",
-    imageUrl:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop",
-  },
-];
-
-const ProjectCard = ({ project }: { project: Project }) => {
-  return (
-    <div
-      className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100
-        hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-80 sm:h-88 flex flex-col"
-    >
-      <div className="h-48 sm:h-56 shrink-0 overflow-hidden">
-        <img
-          src={project.imageUrl}
-          alt={project.title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
-      </div>
-      <div className="p-4 sm:p-5 flex-1">
-        <h3 className="text-lg font-bold text-[#333333] mb-1">
-          {project.title}
-        </h3>
-        <p className="text-sm text-[#333333] line-clamp-2">
-          {project.description}
-        </p>
-      </div>
-    </div>
-  );
-};
+import buildingImg from "../assets/greenBuild.png";
 
 const ProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -107,42 +33,117 @@ const ProjectsSection = () => {
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-3 sm:mb-4">
-            ჩვენი პროექტები
+            ჩვენი პროექტი
           </h2>
           <p className="text-[#333333] text-base sm:text-lg max-w-2xl mx-auto">
-            ჩვენ ვაშენებთ თანამედროვე და მდგრად შენობებს, რომლებიც აკმაყოფილებს
-            უმაღლეს სტანდარტებს
+            თანამედროვე საცხოვრებელი კომპლექსი, შექმნილი კომფორტული და მშვიდი
+            ცხოვრებისათვის
           </p>
         </div>
 
-        <div
-          className={`border border-gray-200 rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 transition-all duration-700 ease-out delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+        <Link
+          to="/projects/1"
+          className={`group block bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100
+            hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 mb-8 sm:mb-12
+            ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          style={{ transitionDelay: "200ms", transitionDuration: "700ms" }}
         >
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={16}
-            loop={true}
-            speed={4000}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            className="continuous-slider"
-            breakpoints={{
-              0: { slidesPerView: 1 },
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 24 },
-            }}
-          >
-            {projects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <ProjectCard project={project} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+          <div className="md:flex">
+            <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-[#1f3f3a]">
+              <img
+                src={buildingImg}
+                alt="სახლი ალუბლებზე"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-[#26b462] text-white shadow-md">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                  დასრულებული
+                </span>
+              </div>
+            </div>
+
+            <div className="md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col justify-center">
+              <div className="flex items-center gap-2 text-sm text-[#1f3f3a] font-medium mb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                ვაზისუბანი, ალუბლების ქ. N9
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
+                სახლი ალუბლებზე
+              </h3>
+
+              <p className="text-[#333333] text-sm sm:text-base leading-relaxed mb-6">
+                თანამედროვე საცხოვრებელი კომპლექსი ფუნქციური დაგეგმარებითა და
+                ხარისხიანი სამშენებლო სტანდარტებით.
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="text-center bg-[#e6f4ec] rounded-xl py-3">
+                  <div className="text-xl sm:text-2xl font-bold text-[#1f3f3a]">
+                    142
+                  </div>
+                  <div className="text-[11px] sm:text-xs text-[#333333]">
+                    ბინა
+                  </div>
+                </div>
+                <div className="text-center bg-[#e6f4ec] rounded-xl py-3">
+                  <div className="text-xl sm:text-2xl font-bold text-[#1f3f3a]">
+                    2
+                  </div>
+                  <div className="text-[11px] sm:text-xs text-[#333333]">
+                    ბლოკი
+                  </div>
+                </div>
+                <div className="text-center bg-[#e6f4ec] rounded-xl py-3">
+                  <div className="text-xl sm:text-2xl font-bold text-[#1f3f3a]">
+                    11
+                  </div>
+                  <div className="text-[11px] sm:text-xs text-[#333333]">
+                    სართული
+                  </div>
+                </div>
+              </div>
+
+              <span className="inline-flex items-center gap-2 text-[#1f3f3a] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                პროექტის ნახვა
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </Link>
 
         <div
           className={`text-center transition-all duration-700 ease-out delay-500 ${
@@ -156,7 +157,7 @@ const ProjectsSection = () => {
               hover:bg-[#1f3f3a]/80 hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
-            მეტის ნახვა
+            ყველა პროექტი
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"

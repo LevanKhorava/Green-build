@@ -29,8 +29,9 @@ const News = () => {
         </div>
         <div className="relative max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-3">სიახლეები</h1>
-          <p className="text-[#e6f4ec] text-base md:text-lg max-w-xl mx-auto">
-            გაეცანით ჩვენს უახლეს ამბებს და მიღწევებს
+          <p className="text-[#e6f4ec] text-base md:text-lg max-w-2xl mx-auto">
+            გაიცანით გრინბილდის უახლეს სიახლეებს, მიმდინარე აქტივობებსა და
+            სამომავლო პროექტებს.
           </p>
         </div>
       </section>

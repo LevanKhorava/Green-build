@@ -129,7 +129,7 @@ const NewsSection = () => {
           <Swiper
             modules={[Autoplay]}
             centeredSlides={true}
-            loop={true}
+            loop={news.length > 3}
             speed={600}
             autoplay={{
               delay: 2000,

@@ -77,7 +77,7 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
         {/* Contact button */}
         <div className="px-4 mt-6">
           <a
-            href="tel:+995599000000"
+            href="tel:+995322022080"
             className="block w-full text-center bg-[#1f3f3a] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#1f3f3a]/80 transition-colors"
           >
             დაგვიკავშირდით

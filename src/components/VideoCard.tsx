@@ -15,10 +15,18 @@ const VideoCard = ({ video, onPlay }: VideoCardProps) => {
         overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300
         focus:outline-none focus:ring-2 focus:ring-[#1f3f3a] focus:ring-offset-2"
     >
+      <div className="px-5 pt-4 pb-3">
+        <p className="text-xs text-[#1f3f3a]/70 uppercase tracking-wide">
+          გრინბილდის მაცხოვრებელი
+        </p>
+        <h3 className="text-base font-bold text-[#333333] mt-0.5">
+          {video.author}
+        </h3>
+      </div>
       <div className="relative aspect-video bg-gray-100">
         <img
           src={thumbnailUrl(video.youtubeId)}
-          alt={video.title}
+          alt={video.author}
           loading="lazy"
           className="w-full h-full object-cover"
         />

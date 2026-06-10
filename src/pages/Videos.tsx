@@ -31,8 +31,10 @@ const Videos = () => {
         </div>
         <div className="relative max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-3">შეფასებები</h1>
-          <p className="text-[#e6f4ec] text-base md:text-lg max-w-xl mx-auto">
-            რას ამბობენ ჩვენი მომხმარებლები
+          <p className="text-[#e6f4ec] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            ჩვენთვის ყველაზე მნიშვნელოვანი მომხმარებლის ნდობა და კმაყოფილებაა.
+            ქვემოთ იხილავთ რეალური ადამიანების გამოცდილებას, რომლებიც დღეს
+            გრინბილდის საცხოვრებელ პროექტებში ცხოვრობენ.
           </p>
         </div>
       </section>

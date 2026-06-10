@@ -65,7 +65,7 @@ const Header = () => {
           </nav>
 
           <a
-            href="tel:+995599000000"
+            href="tel:+995322022080"
             className={`hidden md:inline-flex py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-300 ${
               scrolled
                 ? "bg-green-600 text-white hover:bg-green-700"

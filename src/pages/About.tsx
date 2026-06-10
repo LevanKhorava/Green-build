@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 const values = [
   {
-    title: "ხარისხი",
+    title: "ხარისხი ყველა დეტალში",
     description:
-      "ვიყენებთ მხოლოდ უმაღლესი ხარისხის მასალებს და თანამედროვე ტექნოლოგიებს.",
+      "ვაქცევთ ყურადღებას თითოეულ მცირე დეტალს — მასალის შერჩევიდან საბოლოო მოპირკეთებამდე.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@ const values = [
     ),
   },
   {
-    title: "ინოვაცია",
+    title: "მომხმარებელზე ორიენტირებული მიდგომა",
     description:
-      "მუდმივად ვნერგავთ ინოვაციურ გადაწყვეტილებებს მშენებლობის პროცესში.",
+      "მომხმარებლის საჭიროებები და კომფორტი არის ჩვენი ყველა გადაწყვეტილების საფუძველი.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -38,15 +38,15 @@ const values = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2m13-6a4 4 0 100-8 4 4 0 000 8zm-8 0a3 3 0 100-6 3 3 0 000 6z"
         />
       </svg>
     ),
   },
   {
-    title: "მდგრადობა",
+    title: "სანდოობა და გამჭვირვალობა",
     description:
-      "ვზრუნავთ გარემოზე და ვაშენებთ ენერგოეფექტურ, მდგრად შენობებს.",
+      "ვმოქმედებთ გახსნილად — ვადები, ფასები და პირობები ყოველთვის ნათელია.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -59,15 +59,20 @@ const values = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
         />
       </svg>
     ),
   },
   {
-    title: "საიმედოობა",
+    title: "თანამედროვე სამშენებლო სტანდარტები",
     description:
-      "8 წლიანი გამოცდილებით ვაშენებთ ნდობას ყოველ პროექტში.",
+      "ვიყენებთ უახლეს ტექნოლოგიებსა და საერთაშორისო სამშენებლო სტანდარტებს.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -81,6 +86,27 @@ const values = [
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "გრძელვადიანი განვითარება",
+    description:
+      "ვაშენებთ პროექტებს, რომლებიც წლების შემდეგაც შეინარჩუნებენ ღირებულებას.",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-7 h-7"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
         />
       </svg>
     ),
@@ -169,6 +195,32 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Approach */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
+              ჩვენი მიდგომა
+            </h2>
+          </div>
+          <div className="space-y-5 text-[#333333] text-base md:text-lg leading-relaxed text-center md:text-left">
+            <p>
+              ჩვენი მიზანია მომხმარებლებს შევთავაზოთ თანამედროვე, უსაფრთხო და
+              კომფორტული საცხოვრებელი გარემო. ჩვენი საქმიანობა ეფუძნება
+              პასუხისმგებლობას, პროფესიონალიზმს და ხარისხის მაღალ სტანდარტებს.
+              თითოეული პროექტი იქმნება იმ იდეით, რომ მობინადრეებმა მიიღონ არა
+              მხოლოდ ბინა, არამედ გარემო, სადაც კომფორტულად იცხოვრებენ წლების
+              განმავლობაში.
+            </p>
+            <p>
+              ჩვენ მუდმივად ვითარდებით, ვნერგავთ თანამედროვე სამშენებლო
+              მიდგომებს და ვგეგმავთ ახალ პროექტებს, რომლებიც კიდევ უფრო მეტ
+              ადამიანს მისცემს შესაძლებლობას შეიძინოს ხარისხიანი საცხოვრებელი.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <section ref={valuesRef} className="bg-[#f7f9f8] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
@@ -183,10 +235,10 @@ const About = () => {
               ჩვენი ღირებულებები
             </h2>
             <p className="text-[#333333] text-base md:text-lg max-w-2xl mx-auto">
-              ყველაფერი რასაც ვაკეთებთ ეფუძნება ოთხ ძირითად პრინციპს
+              ყველაფერი რასაც ვაკეთებთ ეფუძნება ხუთ ძირითად პრინციპს
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
               <div
                 key={v.title}

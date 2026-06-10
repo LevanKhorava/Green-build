@@ -153,6 +153,35 @@ const Hero = () => {
             აირჩიეთ სართული დეტალების სანახავად
           </p>
         </div>
+
+        {/* Intro block — "შენი ახალი სახლი იწყება აქ" */}
+        <div
+          className="max-w-4xl mx-auto mt-20 md:mt-28 pb-16 md:pb-24 text-center opacity-0"
+          style={{
+            animation: gateOpen
+              ? "fadeSlideUp 0.8s ease-out 1.7s both"
+              : "none",
+          }}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
+            <span className="bg-linear-to-r from-white via-green-100 to-emerald-200 bg-clip-text text-transparent">
+              შენი ახალი სახლი იწყება აქ —{" "}
+            </span>
+            <span className="whitespace-nowrap text-green-200">
+              „სახლი ალუბლებზე"
+            </span>
+          </h2>
+
+          <div className="mx-auto w-16 h-0.5 rounded-full bg-linear-to-r from-transparent via-green-300 to-transparent mb-8" />
+
+          <p className="text-base md:text-lg leading-relaxed text-green-100/85 max-w-3xl mx-auto">
+            10-წლიანი გამოცდილებით სამშენებლო სფეროში, გრინბილდი ქმნის
+            თანამედროვე, კომფორტულ და უსაფრთხო საცხოვრებელ გარემოს. ვაზისუბანში
+            ჩვენი დასრულებული და შესახლებული პროექტი გრინბილდის ხარისხისა და
+            სანდოობის კიდევ ერთი დასტურია. კომპანია აქტიურად მუშაობს ახალ
+            პროექტზე, რომელთა შესახებ ინფორმაციაც მალე გახდება ხელმისაწვდომი.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -21,7 +21,12 @@ const Footer = () => {
             </div>
             <div>
               <p className="text-sm text-[#e6f4ec]/60">ტელეფონი</p>
-              <p className="text-gray-200 font-medium">+995 599 00 00 00</p>
+              <a
+                href="tel:+995322022080"
+                className="text-gray-200 font-medium hover:text-white transition-colors"
+              >
+                2 02 20 80
+              </a>
             </div>
           </div>
 
@@ -65,10 +70,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="text-sm text-[#e6f4ec]/60">სამუშაო საათები</p>
-              <p className="text-gray-200 font-medium">
-                ორშ – პარ: 09:00 – 18:00
-              </p>
-              <p className="text-[#e6f4ec]/60 text-sm">შაბ: 10:00 – 15:00</p>
+              <p className="text-gray-200 font-medium">10:00 – 18:00</p>
             </div>
           </div>
 
