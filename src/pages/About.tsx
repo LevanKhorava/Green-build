@@ -184,36 +184,24 @@ const About = () => {
           <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/15 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            ჩვენს შესახებ
-          </h1>
-          <p className="text-base md:text-lg text-[#e6f4ec] max-w-2xl mx-auto leading-relaxed">
-            Green Build — ჩვენ ვქმნით მდგრად, ეკოლოგიურად სუფთა და თანამედროვე
-            საცხოვრებელ სივრცეებს. ჩვენი მისია არის ხარისხიანი ცხოვრების
-            სტანდარტის დამკვიდრება საქართველოში.
-          </p>
-        </div>
-      </section>
-
-      {/* Our Approach */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
-              ჩვენი მიდგომა
-            </h2>
-          </div>
-          <div className="space-y-5 text-[#333333] text-base md:text-lg leading-relaxed text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">ჩვენს შესახებ</h1>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            10 წელი ხარისხისა და განვითარების გზაზე
+          </h2>
+          <div className="space-y-4 text-base md:text-lg text-white/90 text-left md:text-center max-w-3xl mx-auto">
             <p>
-              ჩვენი მიზანია მომხმარებლებს შევთავაზოთ თანამედროვე, უსაფრთხო და
-              კომფორტული საცხოვრებელი გარემო. ჩვენი საქმიანობა ეფუძნება
-              პასუხისმგებლობას, პროფესიონალიზმს და ხარისხის მაღალ სტანდარტებს.
-              თითოეული პროექტი იქმნება იმ იდეით, რომ მობინადრეებმა მიიღონ არა
-              მხოლოდ ბინა, არამედ გარემო, სადაც კომფორტულად იცხოვრებენ წლების
-              განმავლობაში.
+              გრინბილდი უკვე 10 წელია სამშენებლო სფეროში ოპერირებს და
+              მომხმარებლებს სთავაზობს თანამედროვე, უსაფრთხო და კომფორტულ
+              საცხოვრებელ გარემოს.
             </p>
             <p>
-              ჩვენ მუდმივად ვითარდებით, ვნერგავთ თანამედროვე სამშენებლო
+              ჩვენი საქმიანობა ეფუძნება პასუხისმგებლობას, პროფესიონალიზმსა და
+              ხარისხის მაღალ სტანდარტებს. თითოეული პროექტი იქმნება იმ იდეით, რომ
+              მობინადრეებმა მიიღონ არა მხოლოდ ბინა, არამედ გარემო, სადაც
+              კომფორტულად იცხოვრებენ წლების განმავლობაში.
+            </p>
+            <p>
+              ჩვენ მუდმივად ვვითარდებით, ვნერგავთ თანამედროვე სამშენებლო
               მიდგომებს და ვგეგმავთ ახალ პროექტებს, რომლებიც კიდევ უფრო მეტ
               ადამიანს მისცემს შესაძლებლობას შეიძინოს ხარისხიანი საცხოვრებელი.
             </p>

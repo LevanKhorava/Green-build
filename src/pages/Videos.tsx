@@ -33,8 +33,8 @@ const Videos = () => {
           <h1 className="text-3xl md:text-5xl font-bold mb-3">შეფასებები</h1>
           <p className="text-[#e6f4ec] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             ჩვენთვის ყველაზე მნიშვნელოვანი მომხმარებლის ნდობა და კმაყოფილებაა.
-            ქვემოთ იხილავთ რეალური ადამიანების გამოცდილებას, რომლებიც დღეს
-            გრინბილდის საცხოვრებელ პროექტებში ცხოვრობენ.
+            სწორედ ამიტომ თითოეული დასრულებული პროექტი რეალური ადამიანების
+            გამოცდილებით ფასდება.
           </p>
         </div>
       </section>
@@ -45,7 +45,11 @@ const Videos = () => {
             {videos.map((video, i) => (
               <div
                 key={video.id}
-                className={isVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0"}
+                className={
+                  isVisible
+                    ? "animate-[fadeSlideUp_0.6s_ease-out_both]"
+                    : "opacity-0"
+                }
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <VideoCard video={video} onPlay={setActiveId} />
