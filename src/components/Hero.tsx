@@ -65,22 +65,7 @@ const Hero = () => {
               ? "fadeSlideUp 0.6s ease-out 0.6s both"
               : "none",
           }}
-        >
-          <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase border border-green-400/30 bg-green-400/10 text-green-200 backdrop-blur-sm"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, transparent 30%, rgba(74,222,128,0.15) 50%, transparent 70%)",
-              backgroundSize: "200% 100%",
-              animation: gateOpen
-                ? "shimmer 3s ease-in-out infinite 1.2s"
-                : "none",
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            მწვანე მშენებლობა
-          </span>
-        </div>
+        ></div>
 
         {/* Heading */}
         <h1
@@ -97,16 +82,14 @@ const Hero = () => {
         </h1>
 
         {/* Subtitle */}
-        <p
-          className="text-base md:text-xl leading-relaxed max-w-2xl mx-auto text-green-100/80 text-center mb-8 opacity-0"
-          style={{
-            animation: gateOpen ? "fadeSlideUp 0.6s ease-out 1s both" : "none",
-          }}
-        >
-          ჩვენ ვქმნით მდგრად და ეკოლოგიურად სუფთა სამშენებლო გადაწყვეტილებებს.
-          Green Build — თქვენი საიმედო პარტნიორი მწვანე მშენებლობაში.
-        </p>
-
+        <h2 className="text-xl  font-bold leading-tight tracking-tight mb-6 text-center">
+          <span className="bg-linear-to-r from-white via-green-100 to-emerald-200 bg-clip-text text-transparent">
+            შენი ახალი სახლი იწყება აქ —{" "}
+          </span>
+          <span className="whitespace-nowrap text-green-200">
+            „სახლი ალუბლებზე"
+          </span>
+        </h2>
         {/* Glowing divider */}
         <div
           className="flex justify-center mb-10 opacity-0"
@@ -156,22 +139,13 @@ const Hero = () => {
 
         {/* Intro block — "შენი ახალი სახლი იწყება აქ" */}
         <div
-          className="max-w-4xl mx-auto mt-20 md:mt-28 pb-16 md:pb-24 text-center opacity-0"
+          className="max-w-4xl mx-auto  pb-16 md:pb-24 text-center opacity-0"
           style={{
             animation: gateOpen
               ? "fadeSlideUp 0.8s ease-out 1.7s both"
               : "none",
           }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
-            <span className="bg-linear-to-r from-white via-green-100 to-emerald-200 bg-clip-text text-transparent">
-              შენი ახალი სახლი იწყება აქ —{" "}
-            </span>
-            <span className="whitespace-nowrap text-green-200">
-              „სახლი ალუბლებზე"
-            </span>
-          </h2>
-
           <div className="mx-auto w-16 h-0.5 rounded-full bg-linear-to-r from-transparent via-green-300 to-transparent mb-8" />
 
           <p className="text-base md:text-lg leading-relaxed text-green-100/85 max-w-3xl mx-auto">
