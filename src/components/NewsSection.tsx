@@ -60,15 +60,6 @@ const NewsCard = ({
         <p className="text-sm text-[#333333] line-clamp-3 flex-1">
           {item.description}
         </p>
-        <div
-          className={`mt-3 text-sm font-semibold transition-all duration-500 ${
-            isActive
-              ? "text-[#1f3f3a] translate-x-0 opacity-100"
-              : "text-[#333333] -translate-x-2 opacity-0"
-          }`}
-        >
-          ვრცლად →
-        </div>
       </div>
     </div>
   );
