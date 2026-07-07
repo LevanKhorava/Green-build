@@ -34,7 +34,9 @@ const BuildingInteractive = ({
         role="button"
         tabIndex={0}
         aria-label={`Floor ${floor.id} — ${statusLabels[floor.status]}`}
-        className={`absolute transition-all duration-300 cursor-pointer ${
+        className={`absolute transition-all duration-300 ${
+          hasAvailable ? "cursor-pointer" : "cursor-not-allowed"
+        } ${
           isSelected
             ? flashRed
               ? "bg-red-500/40"
@@ -98,8 +100,7 @@ const BuildingInteractive = ({
               const floor =
                 floorsA.find((f) => f.id === hoveredFloor) ??
                 floorsB.find((f) => f.id === hoveredFloor);
-              if (!floor) return "სართული";
-              return `${floor.block} Block — ${floor.label}`;
+              return floor?.label ?? "სართული";
             })()}
           </span>,
           document.body,

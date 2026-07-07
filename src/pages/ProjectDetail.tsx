@@ -109,8 +109,23 @@ const ProjectDetail = () => {
           პროექტებზე დაბრუნება
         </Link>
 
-        {/* Project header */}
+        {/* Interactive building */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 mb-8">
+          <h2 className="text-2xl font-bold text-[#333333] mb-2">
+            აირჩიეთ სართული
+          </h2>
+          <p className="text-[#333333] mb-8">
+            დააწკაპუნეთ სართულზე დეტალური ინფორმაციის სანახავად
+          </p>
+
+          <BuildingInteractive
+            onFloorClick={(floor) => navigate(`/projects/${id}/floor/${floor.id}`)}
+            className="max-w-3xl mx-auto"
+          />
+        </div>
+
+        {/* Project header */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-[#26b462] text-white">
               <span className="w-1.5 h-1.5 rounded-full bg-white" />
@@ -205,20 +220,6 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        {/* Interactive building */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
-          <h2 className="text-2xl font-bold text-[#333333] mb-2">
-            აირჩიეთ სართული
-          </h2>
-          <p className="text-[#333333] mb-8">
-            დააწკაპუნეთ სართულზე დეტალური ინფორმაციის სანახავად
-          </p>
-
-          <BuildingInteractive
-            onFloorClick={(floor) => navigate(`/projects/${id}/floor/${floor.id}`)}
-            className="max-w-3xl mx-auto"
-          />
-        </div>
       </div>
     </div>
   );
