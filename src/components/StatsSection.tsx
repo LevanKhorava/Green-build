@@ -64,20 +64,19 @@ const StatCard = ({
       }}
     >
       <div
-        className={`h-full bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-white/10
-          hover:bg-white/20 hover:border-white/30 hover:scale-105 hover:-translate-y-1
+        className={`h-full bg-[#f7f9f8] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-[#1f3f3a]/15
+          hover:bg-[#e6f4ec] hover:border-[#1f3f3a]/30 hover:scale-105 hover:-translate-y-1
           transition-all duration-500 ease-out
           ${isVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0 translate-y-8"}`}
         style={{ animationDelay: `${index * 150}ms` }}
       >
-        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 tabular-nums">
+        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1f3f3a] mb-1 sm:mb-2 tabular-nums">
           {count.toLocaleString()}
-          {stat.suffix && <span className="text-[#e6f4ec]">{stat.suffix}</span>}
+          {stat.suffix && <span className="text-[#26b462]">{stat.suffix}</span>}
         </div>
-        <div className="text-[#e6f4ec] text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
+        <div className="text-[#1f3f3a] text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
           {stat.label}
         </div>
-        <div className="absolute inset-0 rounded-2xl bg-[#e6f4ec]/0 group-hover:bg-[#e6f4ec]/5 transition-colors duration-500" />
       </div>
     </div>
   );
@@ -108,26 +107,18 @@ const StatsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#1f3f3a] py-12 sm:py-16 md:py-24 lg:py-28 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 md:py-24 lg:py-28 overflow-hidden border-b border-[#1f3f3a]/15"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#e6f4ec]/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#e6f4ec]/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-100 sm:h-100 md:w-150 md:h-150 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
-      </div>
-
       <div className="relative max-w-6xl mx-auto px-4">
         <div
-          className={`text-center mb-14 transition-all duration-700 ease-out ${
+          className={`text-center mb-10 sm:mb-14 transition-all duration-700 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4"></h2>
-          <p className="text-[#e6f4ec]/80 text-base sm:text-lg max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] max-w-3xl mx-auto">
             წლების განმავლობაში ჩვენ შევქმენით საიმედო სივრცეები ათასობით
             ოჯახისთვის
-          </p>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-14">
@@ -141,15 +132,25 @@ const StatsSection = () => {
           ))}
         </div>
 
+        <div className="mb-10 sm:mb-14 bg-[#f7f9f8] border border-[#1f3f3a]/15 rounded-2xl p-6 sm:p-8 md:p-10 w-full">
+          <p className="text-base md:text-lg leading-relaxed text-[#1f3f3a] text-left max-w-3xl mx-auto">
+            10-წლიანი გამოცდილებით სამშენებლო სფეროში, გრინბილდი ქმნის
+            თანამედროვე, კომფორტულ და უსაფრთხო საცხოვრებელ გარემოს. ვაზისუბანში
+            ჩვენი დასრულებული და შესახლებული პროექტი გრინბილდის ხარისხისა და
+            სანდოობის კიდევ ერთი დასტურია. კომპანია აქტიურად მუშაობს ახალ
+            პროექტზე, რომელთა შესახებ ინფორმაციაც მალე გახდება ხელმისაწვდომი.
+          </p>
+        </div>
+
         <div
-          className={`text-center transition-all duration-700 ease-out delay-700 ${
+          className={`text-right transition-all duration-700 ease-out delay-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 bg-white text-[#1f3f3a] font-semibold px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
-              hover:bg-[#e6f4ec] hover:shadow-lg hover:shadow-[#1f3f3a]/30 hover:scale-105
+            className="inline-flex items-center gap-2 bg-[#1f3f3a] text-white font-semibold px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
+              hover:bg-[#1f3f3a]/80 hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
             მეტის ნახვა

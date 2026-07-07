@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-[#1f3f3a] text-white mt-auto">
+    <footer className="bg-[#26b462] text-white mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-start gap-3">
@@ -25,7 +25,7 @@ const Footer = () => {
                 href="tel:+995322022080"
                 className="text-gray-200 font-medium hover:text-white transition-colors"
               >
-                2 02 20 80
+                032 2 02 20 80
               </a>
             </div>
           </div>

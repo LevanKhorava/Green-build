@@ -10,8 +10,7 @@ interface BuildingInteractiveProps {
 }
 
 const isTouch =
-  typeof window !== "undefined" &&
-  window.matchMedia("(hover: none)").matches;
+  typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
 const BuildingInteractive = ({
   onFloorClick,
@@ -100,8 +99,7 @@ const BuildingInteractive = ({
                 floorsA.find((f) => f.id === hoveredFloor) ??
                 floorsB.find((f) => f.id === hoveredFloor);
               if (!floor) return "სართული";
-              const soldOut = !floor.apartments.some((a) => !a.sold);
-              return `${floor.block} Block — ${floor.label}${soldOut ? " — სრულად გაყიდულია" : ""}`;
+              return `${floor.block} Block — ${floor.label}`;
             })()}
           </span>,
           document.body,

@@ -24,14 +24,10 @@ const Videos = () => {
 
   return (
     <div>
-      <section className="relative bg-[#26b462] text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/15 rounded-full blur-3xl" />
-        </div>
+      <section className="relative bg-white text-[#1f3f3a] overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-3">შეფასებები</h1>
-          <p className="text-[#e6f4ec] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#1f3f3a] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             ჩვენთვის ყველაზე მნიშვნელოვანი მომხმარებლის ნდობა და კმაყოფილებაა.
             სწორედ ამიტომ თითოეული დასრულებული პროექტი რეალური ადამიანების
             გამოცდილებით ფასდება.
@@ -39,7 +35,7 @@ const Videos = () => {
         </div>
       </section>
 
-      <section ref={gridRef} className="bg-[#e6f4ec] py-12 md:py-20">
+      <section ref={gridRef} className="bg-white py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((video, i) => (

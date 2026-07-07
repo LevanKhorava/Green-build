@@ -26,17 +26,17 @@ const VideosSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#e6f4ec] py-12 sm:py-16 md:py-24">
+    <section ref={sectionRef} className="bg-white py-12 sm:py-16 md:py-24 border-b border-[#1f3f3a]/15">
       <div className="max-w-6xl mx-auto px-4">
         <div
           className={`text-center mb-8 sm:mb-12 transition-all duration-700 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] mb-3 sm:mb-4">
             შეფასებები
           </h2>
-          <p className="text-[#333333] text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-[#1f3f3a] text-base sm:text-lg max-w-2xl mx-auto">
             რას ამბობენ ჩვენი მომხმარებლები
           </p>
         </div>
@@ -54,7 +54,7 @@ const VideosSection = () => {
         </div>
 
         <div
-          className={`text-center transition-all duration-700 ease-out delay-500 ${
+          className={`text-right transition-all duration-700 ease-out delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >

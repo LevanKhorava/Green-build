@@ -15,10 +15,10 @@ const NewsCard = ({
 }) => {
   return (
     <div
-      className={`rounded-2xl overflow-hidden transition-all duration-500 h-96 flex flex-col ${
+      className={`rounded-2xl overflow-hidden transition-all duration-500 h-96 flex flex-col bg-white ${
         isActive
           ? "shadow-2xl shadow-[#1f3f3a]/20 border-2 border-[#1f3f3a] scale-105"
-          : "shadow-md border border-white/10 scale-95 opacity-60"
+          : "shadow-md border border-[#1f3f3a]/10 scale-95 opacity-60"
       }`}
     >
       <div className="h-48 shrink-0 overflow-hidden relative">
@@ -91,23 +91,18 @@ const NewsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#1f3f3a] py-12 sm:py-16 md:py-24 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 md:py-24 overflow-hidden"
     >
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#e6f4ec]/5 rounded-full blur-3xl" />
-      </div>
-
       <div className="relative max-w-6xl mx-auto px-4">
         <div
           className={`text-center mb-10 sm:mb-14 transition-all duration-700 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] mb-3 sm:mb-4">
             სიახლეები
           </h2>
-          <p className="text-[#e6f4ec]/60 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-[#1f3f3a] text-base sm:text-lg max-w-2xl mx-auto">
             გაეცანით ჩვენს უახლეს ამბებს და მიღწევებს
           </p>
         </div>
@@ -143,15 +138,15 @@ const NewsSection = () => {
         </div>
 
         <div
-          className={`text-center transition-all duration-700 ease-out delay-500 ${
+          className={`text-right transition-all duration-700 ease-out delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <Link
             to="/news"
-            className="inline-flex items-center gap-2 border-2 border-white text-white font-semibold
+            className="inline-flex items-center gap-2 border-2 border-[#1f3f3a] text-[#1f3f3a] font-semibold
               px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base rounded-full
-              hover:bg-white hover:text-[#333333] hover:shadow-lg hover:scale-105
+              hover:bg-[#1f3f3a] hover:text-white hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
             მეტის ნახვა

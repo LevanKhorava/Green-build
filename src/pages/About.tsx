@@ -178,17 +178,13 @@ const About = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-[#26b462] text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 md:w-96 md:h-96 bg-[#e6f4ec]/15 rounded-full blur-3xl" />
-        </div>
+      <section className="relative bg-white text-[#1f3f3a] overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">ჩვენს შესახებ</h1>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             10 წელი ხარისხისა და განვითარების გზაზე
           </h2>
-          <div className="space-y-4 text-base md:text-lg text-white/90 text-left md:text-center max-w-3xl mx-auto">
+          <div className="space-y-4 text-base md:text-lg text-[#1f3f3a] text-right max-w-3xl mx-auto">
             <p>
               გრინბილდი უკვე 10 წელია სამშენებლო სფეროში ოპერირებს და
               მომხმარებლებს სთავაზობს თანამედროვე, უსაფრთხო და კომფორტულ
@@ -210,7 +206,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section ref={valuesRef} className="bg-[#f7f9f8] py-16 md:py-24">
+      <section ref={valuesRef} className="bg-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div
             className={`text-center mb-12 transition-all duration-700 ease-out ${
@@ -219,10 +215,10 @@ const About = () => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#1f3f3a] mb-3">
               ჩვენი ღირებულებები
             </h2>
-            <p className="text-[#333333] text-base md:text-lg max-w-2xl mx-auto">
+            <p className="text-[#1f3f3a] text-base md:text-lg max-w-2xl mx-auto">
               ყველაფერი რასაც ვაკეთებთ ეფუძნება ხუთ ძირითად პრინციპს
             </p>
           </div>
@@ -238,10 +234,10 @@ const About = () => {
                 <div className="w-14 h-14 rounded-full bg-[#e6f4ec] text-[#1f3f3a] flex items-center justify-center mx-auto mb-4">
                   {v.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#333333] mb-2">
+                <h3 className="text-lg font-bold text-[#1f3f3a] mb-2">
                   {v.title}
                 </h3>
-                <p className="text-sm text-[#333333] leading-relaxed">
+                <p className="text-sm text-[#1f3f3a] leading-relaxed">
                   {v.description}
                 </p>
               </div>
@@ -253,7 +249,7 @@ const About = () => {
       {/* Timeline */}
       <section
         ref={timelineRef}
-        className="relative bg-[#e6f4ec] py-16 md:py-24"
+        className="relative bg-white py-16 md:py-24"
       >
         <div className="max-w-3xl mx-auto px-4">
           <div
@@ -263,10 +259,10 @@ const About = () => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-[#333333] mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#1f3f3a] mb-3">
               ჩვენი გზა
             </h2>
-            <p className="text-[#333333] text-base md:text-lg">
+            <p className="text-[#1f3f3a] text-base md:text-lg">
               კომპანიის განვითარების მნიშვნელოვანი ეტაპები
             </p>
           </div>
@@ -291,10 +287,10 @@ const About = () => {
                   <span className="inline-block text-sm font-bold text-[#1f3f3a] bg-[#e6f4ec] px-3 py-1 rounded-full mb-2">
                     {item.year}
                   </span>
-                  <h3 className="text-lg font-bold text-[#333333] mb-1">
+                  <h3 className="text-lg font-bold text-[#1f3f3a] mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#333333] leading-relaxed">
+                  <p className="text-sm text-[#1f3f3a] leading-relaxed">
                     {item.description}
                   </p>
                 </div>

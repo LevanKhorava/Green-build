@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 
@@ -12,32 +12,15 @@ const navLinks = [
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const isScrolled = window.scrollY >= 50;
-      setScrolled(isScrolled);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }, [scrolled]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-sm" : "bg-[#26b462]"
-        }`}
+        className="fixed top-0 left-0 right-0 z-30 bg-[#26b462]"
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <NavLink
-            to="/"
-            className={`text-xl font-bold transition-colors duration-300 ${
-              scrolled ? "text-green-600" : "text-white"
-            }`}
-          >
+          <NavLink to="/" className="text-xl font-bold text-white">
             GreenBuild
           </NavLink>
 
@@ -49,13 +32,9 @@ const Header = () => {
                 end={link.to === "/"}
                 className={({ isActive }) =>
                   `text-sm font-medium transition-colors duration-300 ${
-                    scrolled
-                      ? isActive
-                        ? "text-green-600"
-                        : "text-gray-700 hover:text-green-600"
-                      : isActive
-                        ? "text-white"
-                        : "text-green-100 hover:text-white"
+                    isActive
+                      ? "text-white"
+                      : "text-green-100 hover:text-white"
                   }`
                 }
               >
@@ -66,21 +45,13 @@ const Header = () => {
 
           <a
             href="tel:+995322022080"
-            className={`hidden md:inline-flex py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-300 ${
-              scrolled
-                ? "bg-green-600 text-white hover:bg-green-700"
-                : "border border-white text-white hover:bg-white/10"
-            }`}
+            className="hidden md:inline-flex py-2 px-4 rounded-lg text-sm font-medium border border-white text-white hover:bg-white/10 transition-colors duration-300"
           >
             დაგვიკავშირდით
           </a>
 
           <button
-            className={`md:hidden transition-colors duration-300 ${
-              scrolled
-                ? "text-gray-700 hover:text-gray-900"
-                : "text-white hover:text-green-100"
-            }`}
+            className="md:hidden text-white hover:text-green-100 transition-colors duration-300"
             onClick={() => setSidebarOpen(true)}
             aria-label="Open menu"
           >

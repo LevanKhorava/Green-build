@@ -75,48 +75,6 @@ img {
   }
 }
 
-@keyframes glow-line {
-  0%,
-  100% {
-    opacity: 0.5;
-    width: 60px;
-  }
-  50% {
-    opacity: 1;
-    width: 100px;
-  }
-}
-
-@keyframes gate-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes gate-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes gate-logo-fade {
-  0%,
-  60% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
-
 @keyframes build-up {
   0% {
     transform: scaleY(0);
