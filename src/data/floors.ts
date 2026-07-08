@@ -34,10 +34,46 @@ export const floorsA: Floor[] = [
     status: "available",
     block: "B",
     apartments: [
-      { id: 122, label: "ბინა 122", rooms: 2, size: 77.9, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
-      { id: 1221, label: "ბინა 122ა", rooms: 2, size: 72, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
-      { id: 1231, label: "ბინა 123ა", rooms: 2, size: 74.2, bathrooms: 1, pricePerSqm: 0, sold: false, side: "front" },
-      { id: 1232, label: "ბინა 123ბ", rooms: 3, size: 87.1, bathrooms: 2, pricePerSqm: 0, sold: false, side: "front" },
+      {
+        id: 122,
+        label: "ბინა 122",
+        rooms: 2,
+        size: 77.9,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
+      {
+        id: 1221,
+        label: "ბინა 122ა",
+        rooms: 2,
+        size: 72,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
+      {
+        id: 1231,
+        label: "ბინა 123ა",
+        rooms: 2,
+        size: 74.2,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
+      {
+        id: 1232,
+        label: "ბინა 123ბ",
+        rooms: 3,
+        size: 87.1,
+        bathrooms: 2,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
     ],
   },
   {
@@ -75,7 +111,16 @@ export const floorsA: Floor[] = [
     status: "available",
     block: "B",
     apartments: [
-      { id: 57, label: "ბინა 57", rooms: 2, size: 53.4, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
+      {
+        id: 57,
+        label: "ბინა 57",
+        rooms: 2,
+        size: 53.4,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
     ],
   },
   {
@@ -86,7 +131,16 @@ export const floorsA: Floor[] = [
     status: "available",
     block: "B",
     apartments: [
-      { id: 40, label: "ბინა 40", rooms: 2, size: 53.4, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
+      {
+        id: 40,
+        label: "ბინა 40",
+        rooms: 2,
+        size: 53.4,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
     ],
   },
   {
@@ -97,7 +151,16 @@ export const floorsA: Floor[] = [
     status: "available",
     block: "B",
     apartments: [
-      { id: 23, label: "ბინა 23", rooms: 2, size: 53.4, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
+      {
+        id: 23,
+        label: "ბინა 23",
+        rooms: 2,
+        size: 53.4,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
     ],
   },
   {
@@ -115,42 +178,87 @@ export const floorsB: Floor[] = [
   {
     id: 111,
     label: "სართული 11",
-    clipPath: "polygon(73% 24.5%, 96% 31%, 96% 35.5%, 73% 29.5%)",
+    clipPath: "polygon(71% 24.5%, 93.8% 31%, 94% 35.5%, 71% 29.5%)",
     apartmentCount: 3,
     status: "available",
     block: "A",
     apartments: [
-      { id: 136, label: "ბინა 136", rooms: 2, size: 99.8, bathrooms: 1, pricePerSqm: 0, sold: false, side: "back" },
-      { id: 138, label: "ბინა 138", rooms: 3, size: 98.3, bathrooms: 2, pricePerSqm: 0, sold: false, side: "front" },
-      { id: 139, label: "ბინა 139", rooms: 3, size: 111.8, bathrooms: 2, pricePerSqm: 0, sold: false, side: "front" },
+      {
+        id: 136,
+        label: "ბინა 136",
+        rooms: 2,
+        size: 99.8,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "back",
+      },
+      {
+        id: 138,
+        label: "ბინა 138",
+        rooms: 3,
+        size: 98.3,
+        bathrooms: 2,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
+      {
+        id: 139,
+        label: "ბინა 139",
+        rooms: 3,
+        size: 111.8,
+        bathrooms: 2,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
     ],
   },
   {
     id: 110,
     label: "სართული 10",
-    clipPath: "polygon(73% 29.5%, 96% 35.5%, 96% 40%, 73% 34.5%)",
+    clipPath: "polygon(71% 28%, 94% 35.5%, 94.5% 40%, 71% 34.5%)",
     apartmentCount: 1,
     status: "available",
     block: "A",
     apartments: [
-      { id: 135, label: "ბინა 135", rooms: 2, size: 57.1, bathrooms: 1, pricePerSqm: 0, sold: false, side: "front" },
+      {
+        id: 135,
+        label: "ბინა 135",
+        rooms: 2,
+        size: 57.1,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
     ],
   },
   {
     id: 109,
     label: "სართული 9",
-    clipPath: "polygon(73% 34.5%, 96% 40%, 96% 44.5%, 73% 39.5%)",
+    clipPath: "polygon(71% 34.5%, 94.3% 40%, 94.5% 44.5%, 71% 39.5%)",
     apartmentCount: 1,
     status: "available",
     block: "A",
     apartments: [
-      { id: 129, label: "ბინა 129", rooms: 2, size: 57.1, bathrooms: 1, pricePerSqm: 0, sold: false, side: "front" },
+      {
+        id: 129,
+        label: "ბინა 129",
+        rooms: 2,
+        size: 57.1,
+        bathrooms: 1,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
     ],
   },
   {
     id: 108,
     label: "სართული 8",
-    clipPath: "polygon(73% 39.5%, 96% 44.5%, 96% 49%, 73% 44.5%)",
+    clipPath: "polygon(71.5% 39.5%, 94.5% 44.5%, 94.9% 49%, 71.5% 44.5%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -159,7 +267,7 @@ export const floorsB: Floor[] = [
   {
     id: 107,
     label: "სართული 7",
-    clipPath: "polygon(73% 44.5%, 96% 49%, 96% 53%, 73% 49%)",
+    clipPath: "polygon(71.5% 44.5%, 94.7% 49%, 94.9% 53%, 71.5% 49%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -168,7 +276,7 @@ export const floorsB: Floor[] = [
   {
     id: 106,
     label: "სართული 6",
-    clipPath: "polygon(73% 50%, 96% 54%, 96% 58%, 73% 55%)",
+    clipPath: "polygon(71.8% 50%, 94.9% 54%, 95.1% 58%, 71.8% 55%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -177,7 +285,7 @@ export const floorsB: Floor[] = [
   {
     id: 105,
     label: "სართული 5",
-    clipPath: "polygon(73% 56%, 96% 59%, 96% 62.8%, 73% 61%)",
+    clipPath: "polygon(71.8% 56%, 94.9% 59%, 95.1% 62.8%, 71.8% 61%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -186,7 +294,7 @@ export const floorsB: Floor[] = [
   {
     id: 104,
     label: "სართული 4",
-    clipPath: "polygon(73% 61%, 96% 63.5%, 96% 67%, 73% 66%)",
+    clipPath: "polygon(71.8% 61%, 95.4% 63.5%, 95.6% 67%, 71.8% 66%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -195,7 +303,7 @@ export const floorsB: Floor[] = [
   {
     id: 103,
     label: "სართული 3",
-    clipPath: "polygon(73% 66%, 96% 68.2%, 96% 72%, 73% 71%)",
+    clipPath: "polygon(72% 66%, 95.4% 68.2%, 95.6% 72% , 72.1% 71%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -204,7 +312,7 @@ export const floorsB: Floor[] = [
   {
     id: 102,
     label: "სართული 2",
-    clipPath: "polygon(73% 71%, 96% 72%, 96% 76%, 73% 76%)",
+    clipPath: "polygon(72.2% 71%, 95.4% 72%, 95.6% 76%, 72% 76%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -218,11 +326,23 @@ export const floorsB: Floor[] = [
     status: "available",
     block: "A",
     apartments: [
-      { id: 4, label: "ბინა 4", rooms: 4, size: 73.7, bathrooms: 2, pricePerSqm: 0, sold: false, side: "front" },
+      {
+        id: 4,
+        label: "ბინა 4",
+        rooms: 4,
+        size: 73.7,
+        bathrooms: 2,
+        pricePerSqm: 0,
+        sold: false,
+        side: "front",
+      },
     ],
   },
 ];
 
 export function getFloorById(floorId: number): Floor | undefined {
-  return floorsA.find((f) => f.id === floorId) ?? floorsB.find((f) => f.id === floorId);
+  return (
+    floorsA.find((f) => f.id === floorId) ??
+    floorsB.find((f) => f.id === floorId)
+  );
 }
