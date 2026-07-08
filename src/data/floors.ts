@@ -312,7 +312,7 @@ export const floorsB: Floor[] = [
   {
     id: 102,
     label: "სართული 2",
-    clipPath: "polygon(72.2% 71%, 95.4% 72%, 95.6% 76%, 72% 76%)",
+    clipPath: "polygon(72.2% 71%, 95.4% 72%, 95.6% 76%, 72.5% 76%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
