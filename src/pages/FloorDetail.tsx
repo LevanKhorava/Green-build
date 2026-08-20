@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { getFloorById, statusLabels } from "../data/floors";
 import flatImg from "../assets/flat.png";
 
@@ -8,16 +13,20 @@ const flatImages = import.meta.glob("../assets/*.png", {
   import: "default",
 }) as Record<string, string>;
 
-const getImageForLabel = (label: string): string => {
+const getImagesForLabel = (label: string): string[] => {
   const num = label.replace(/^ბინა\s+/, "").trim();
-  return flatImages[`../assets/${num}.png`] ?? flatImg;
+  const imgs = [
+    flatImages[`../assets/${num}.png`],
+    flatImages[`../assets/${num}-top.png`],
+  ].filter(Boolean);
+  return imgs.length > 0 ? imgs : [flatImg];
 };
 
 const FloorDetail = () => {
   const { id, floorId } = useParams<{ id: string; floorId: string }>();
   const floor = getFloorById(Number(floorId));
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxImg, setLightboxImg] = useState<string>(flatImg);
+  const [lightboxImgs, setLightboxImgs] = useState<string[]>([]);
 
   if (!floor) {
     return (
@@ -97,7 +106,7 @@ const FloorDetail = () => {
       </div>
 
       <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mt-10 mb-6">
-        ბინები
+        დარჩენილი ბინები
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -109,13 +118,13 @@ const FloorDetail = () => {
               className="rounded-2xl shadow-sm border border-gray-100 bg-white overflow-hidden transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] cursor-pointer hover:shadow-lg hover:-translate-y-1"
               style={{ animationDelay: `${i * 80}ms` }}
               onClick={() => {
-                setLightboxImg(getImageForLabel(apt.label));
+                setLightboxImgs(getImagesForLabel(apt.label));
                 setLightboxOpen(true);
               }}
             >
               <div className="h-44 overflow-hidden">
                 <img
-                  src={getImageForLabel(apt.label)}
+                  src={getImagesForLabel(apt.label)[0]}
                   alt={apt.label}
                   className="w-full h-full object-cover"
                 />
@@ -209,18 +218,44 @@ const FloorDetail = () => {
         >
           <button
             onClick={() => setLightboxOpen(false)}
-            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors cursor-pointer"
+            className="absolute top-4 right-4 z-20 text-white/70 hover:text-white transition-colors cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <img
-            src={lightboxImg}
-            alt="ბინის გეგმა"
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+          <div
+            className="w-full max-w-5xl"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
+              className="[--swiper-navigation-color:#fff] [--swiper-pagination-color:#fff]"
+              onSwiper={(swiper) => {
+                if (swiper.slides.length > 1) {
+                  const base = swiper.translate;
+                  window.setTimeout(() => {
+                    swiper.translateTo(base - 70, 450, false, false);
+                    window.setTimeout(() => {
+                      swiper.translateTo(base, 450, false, false);
+                    }, 550);
+                  }, 450);
+                }
+              }}
+            >
+              {lightboxImgs.map((src, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={src}
+                    alt="ბინის გეგმა"
+                    className="max-w-full max-h-[90vh] object-contain rounded-lg mx-auto"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       )}
     </div>
