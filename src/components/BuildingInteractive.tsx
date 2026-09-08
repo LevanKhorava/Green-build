@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { floorsA, floorsB, statusLabels, type Floor } from "../data/floors";
-import buildingImg from "../assets/greenBuild.png";
+import buildingImg from "../assets/greenBuildActive.png";
 
 interface BuildingInteractiveProps {
   onFloorClick: (floor: Floor) => void;
@@ -39,11 +39,11 @@ const BuildingInteractive = ({
         } ${
           isSelected
             ? flashRed
-              ? "bg-red-500/40"
+              ? "bg-red-500/30"
               : "bg-green-500/30"
             : isHovered
               ? hasAvailable
-                ? "bg-green-500/20"
+                ? "bg-green-500/30"
                 : "bg-red-500/30"
               : ""
         }`}

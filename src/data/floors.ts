@@ -29,7 +29,7 @@ export const floorsA: Floor[] = [
   {
     id: 8,
     label: "სართული 8",
-    clipPath: "polygon(21.8% 21.9%, 71.3% 38.7%, 71.4% 43.7%, 21.5% 28.9%)",
+    clipPath: "polygon(5% 21.5%, 65% 30%, 65% 37%, 5% 30%)",
     apartmentCount: 1,
     status: "available",
     block: "B",
@@ -49,7 +49,7 @@ export const floorsA: Floor[] = [
   {
     id: 7,
     label: "სართული 7",
-    clipPath: "polygon(21.5% 28.9%, 71.4% 43.7%, 71.5% 48.7%, 21.2% 36%)",
+    clipPath: "polygon(5% 30%, 66.5% 37%, 66.5% 44%, 5% 40%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "B",
@@ -58,7 +58,7 @@ export const floorsA: Floor[] = [
   {
     id: 6,
     label: "სართული 6",
-    clipPath: "polygon(21.2% 36.4%, 71.5% 49%, 71.6% 54%, 21% 43.3%)",
+    clipPath: "polygon(5% 40%, 66.5% 44.6%, 66.5% 51.7%, 5% 50%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "B",
@@ -67,7 +67,7 @@ export const floorsA: Floor[] = [
   {
     id: 5,
     label: "სართული 5",
-    clipPath: "polygon(21% 43.8%, 71.7% 54.5%, 71.8% 59.5%, 20.8% 51%)",
+    clipPath: "polygon(5% 50%, 66.5% 51.7%, 66.5% 59.1%, 5% 60%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "B",
@@ -76,7 +76,7 @@ export const floorsA: Floor[] = [
   {
     id: 4,
     label: "სართული 4",
-    clipPath: "polygon(20.8% 51.8%, 71.8% 59.8%, 71.8% 64.7%, 20.5% 59%)",
+    clipPath: "polygon(5% 60%, 66.5% 59%, 66.5% 66.6%, 5% 70%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "B",
@@ -85,7 +85,7 @@ export const floorsA: Floor[] = [
   {
     id: 3,
     label: "სართული 3",
-    clipPath: "polygon(20.5% 59.5%, 71.9% 65.3%, 72% 70%, 20.2% 66.6%)",
+    clipPath: "polygon(5% 70%, 66.5% 66%, 66.5% 74%, 5% 80%)",
     apartmentCount: 1,
     status: "available",
     block: "B",
@@ -105,7 +105,7 @@ export const floorsA: Floor[] = [
   {
     id: 2,
     label: "სართული 2",
-    clipPath: "polygon(20.3% 67.3%, 72% 70.8%, 72% 76%, 20% 75%)",
+    clipPath: "polygon(5% 80%, 66.5% 73%, 66.5% 81.1%, 5% 90%)",
     apartmentCount: 1,
     status: "available",
     block: "B",
@@ -125,7 +125,7 @@ export const floorsA: Floor[] = [
   {
     id: 1,
     label: "სართული 1",
-    clipPath: "polygon(18.5% 75.3%, 72% 76.5%, 72% 81%, 18.5% 83%)",
+    clipPath: "polygon(10% 93%, 66.5% 81%, 66.5% 88%, 10% 100%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "B",
@@ -137,7 +137,7 @@ export const floorsB: Floor[] = [
   {
     id: 111,
     label: "სართული 11",
-    clipPath: "polygon(71% 24.5%, 93.8% 31%, 94% 35.5%, 71% 29.5%)",
+    clipPath: "polygon(64.5% 7%, 89% 12.5%, 92.9% 18%, 64.5% 13%)",
     apartmentCount: 3,
     status: "available",
     block: "A",
@@ -177,7 +177,7 @@ export const floorsB: Floor[] = [
   {
     id: 110,
     label: "სართული 10",
-    clipPath: "polygon(71% 28%, 94% 35.5%, 94.5% 40%, 71% 34.5%)",
+    clipPath: "polygon(67.5% 14.7%, 92.8% 18.8%, 92.7% 26%, 67.5% 22%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -186,7 +186,7 @@ export const floorsB: Floor[] = [
   {
     id: 109,
     label: "სართული 9",
-    clipPath: "polygon(71% 34.5%, 94.3% 40%, 94.5% 44.5%, 71% 39.5%)",
+    clipPath: "polygon(67.5% 22%, 92.8% 26%, 92.7% 33%, 67.5% 29%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -195,7 +195,7 @@ export const floorsB: Floor[] = [
   {
     id: 108,
     label: "სართული 8",
-    clipPath: "polygon(71.5% 39.5%, 94.5% 44.5%, 94.9% 49%, 71.5% 44.5%)",
+    clipPath: "polygon(67.5% 29%, 92.8% 33%, 92.7% 38%, 67.5% 36%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -204,7 +204,7 @@ export const floorsB: Floor[] = [
   {
     id: 107,
     label: "სართული 7",
-    clipPath: "polygon(71.5% 44.5%, 94.7% 49%, 94.9% 53%, 71.5% 49%)",
+    clipPath: "polygon(67.5% 36%, 92.8% 38%, 92.7% 45%, 67.5% 43%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -213,7 +213,7 @@ export const floorsB: Floor[] = [
   {
     id: 106,
     label: "სართული 6",
-    clipPath: "polygon(71.8% 50%, 94.9% 54%, 95.1% 58%, 71.8% 55%)",
+    clipPath: "polygon(67.5% 45%, 92.8% 45%, 92.7% 52%, 67.5% 52%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -222,7 +222,7 @@ export const floorsB: Floor[] = [
   {
     id: 105,
     label: "სართული 5",
-    clipPath: "polygon(71.8% 56%, 94.9% 59%, 95.1% 62.8%, 71.8% 61%)",
+    clipPath: "polygon(67.5% 52%, 92.8% 52%, 92.7% 58.5%, 67.5% 59%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -231,7 +231,7 @@ export const floorsB: Floor[] = [
   {
     id: 104,
     label: "სართული 4",
-    clipPath: "polygon(71.8% 61%, 95.4% 63.5%, 95.6% 67%, 71.8% 66%)",
+    clipPath: "polygon(67.5% 59%, 92.8% 58%, 92.7% 64.5%, 67.5% 66%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -240,7 +240,7 @@ export const floorsB: Floor[] = [
   {
     id: 103,
     label: "სართული 3",
-    clipPath: "polygon(72% 66%, 95.4% 68.2%, 95.6% 72% , 72.1% 71%)",
+    clipPath: "polygon(67.5% 66%, 92.8% 64.7%, 92.7% 70.5%, 67.5% 73%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -249,7 +249,7 @@ export const floorsB: Floor[] = [
   {
     id: 102,
     label: "სართული 2",
-    clipPath: "polygon(72.2% 71%, 95.4% 72%, 95.6% 76%, 72.5% 76%)",
+    clipPath: "polygon(67.5% 74%, 92.8% 71.5%, 92.7% 77%, 67.5% 80%)",
     apartmentCount: 0,
     status: "sold-out",
     block: "A",
@@ -258,7 +258,8 @@ export const floorsB: Floor[] = [
   {
     id: 101,
     label: "სართული 1",
-    clipPath: "polygon(73% 76%, 96% 75.8%, 96% 81%, 73% 81%)",
+    // clipPath: "polygon(64.5% 80%, 89% 78%, 92.9% 84%, 64.5% 82%)",
+    clipPath: "polygon(67.5% 81%, 92% 78%, 92.2% 81.7%, 67.5% 86%)",
     apartmentCount: 1,
     status: "available",
     block: "A",

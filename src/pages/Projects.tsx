@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import buildingImg from "../assets/greenBuild.png";
+import buildingImg from "../assets/greenBuildActive.png";
 
 const projectsList = [
   {
