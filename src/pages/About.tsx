@@ -184,7 +184,7 @@ const About = () => {
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             10 წელი ხარისხისა და განვითარების გზაზე
           </h2>
-          <div className="space-y-4 text-base md:text-lg text-[#1f3f3a] text-right max-w-3xl mx-auto">
+          <div className="space-y-4 text-base md:text-lg text-[#1f3f3a] text-left max-w-3xl mx-auto">
             <p>
               გრინბილდი უკვე 10 წელია სამშენებლო სფეროში ოპერირებს და
               მომხმარებლებს სთავაზობს თანამედროვე, უსაფრთხო და კომფორტულ
@@ -247,10 +247,7 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section
-        ref={timelineRef}
-        className="relative bg-white py-16 md:py-24"
-      >
+      <section ref={timelineRef} className="relative bg-white py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4">
           <div
             className={`text-center mb-14 transition-all duration-700 ease-out ${
