@@ -1,4 +1,4 @@
-import greenBuildImg from "../assets/greenBuildActive.png";
+import greenBuildImg from "../assets/greenBuildActive.jpg";
 
 export interface NewsItem {
   id: number;

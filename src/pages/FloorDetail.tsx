@@ -6,9 +6,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { getFloorById, statusLabels } from "../data/floors";
-import flatImg from "../assets/flat.png";
+import flatImg from "../assets/flat.avif";
 
-const flatImages = import.meta.glob("../assets/*.png", {
+const flatImages = import.meta.glob("../assets/*.avif", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
@@ -16,8 +16,8 @@ const flatImages = import.meta.glob("../assets/*.png", {
 const getImagesForLabel = (label: string): string[] => {
   const num = label.replace(/^ბინა\s+/, "").trim();
   const imgs = [
-    flatImages[`../assets/${num}.png`],
-    flatImages[`../assets/${num}-top.png`],
+    flatImages[`../assets/${num}.avif`],
+    flatImages[`../assets/${num}-top.avif`],
   ].filter(Boolean);
   return imgs.length > 0 ? imgs : [flatImg];
 };

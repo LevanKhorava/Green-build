@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { floorsA, floorsB, statusLabels, type Floor } from "../data/floors";
-import buildingImg from "../assets/greenBuildActive.png";
+import buildingImg from "../assets/greenBuildActive.jpg";
 
 interface BuildingInteractiveProps {
   onFloorClick: (floor: Floor) => void;

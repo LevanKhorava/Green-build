@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import buildingImg from "../assets/greenBuildActive.png";
+import buildingImg from "../assets/greenBuildActive.jpg";
 
 const ProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
