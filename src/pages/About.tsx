@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { useText } from "../hooks/siteTexts";
 
-const values = [
-  {
-    title: "ხარისხი ყველა დეტალში",
-    description:
-      "ვაქცევთ ყურადღებას თითოეულ მცირე დეტალს — მასალის შერჩევიდან საბოლოო მოპირკეთებამდე.",
-    icon: (
+const valueIcons = [
+  (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-7 h-7"
@@ -20,13 +17,8 @@ const values = [
           d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
         />
       </svg>
-    ),
-  },
-  {
-    title: "მომხმარებელზე ორიენტირებული მიდგომა",
-    description:
-      "მომხმარებლის საჭიროებები და კომფორტი არის ჩვენი ყველა გადაწყვეტილების საფუძველი.",
-    icon: (
+  ),
+  (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-7 h-7"
@@ -41,13 +33,8 @@ const values = [
           d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2m13-6a4 4 0 100-8 4 4 0 000 8zm-8 0a3 3 0 100-6 3 3 0 000 6z"
         />
       </svg>
-    ),
-  },
-  {
-    title: "სანდოობა და გამჭვირვალობა",
-    description:
-      "ვმოქმედებთ გახსნილად — ვადები, ფასები და პირობები ყოველთვის ნათელია.",
-    icon: (
+  ),
+  (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-7 h-7"
@@ -67,13 +54,8 @@ const values = [
           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
         />
       </svg>
-    ),
-  },
-  {
-    title: "თანამედროვე სამშენებლო სტანდარტები",
-    description:
-      "ვიყენებთ უახლეს ტექნოლოგიებსა და საერთაშორისო სამშენებლო სტანდარტებს.",
-    icon: (
+  ),
+  (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-7 h-7"
@@ -88,13 +70,8 @@ const values = [
           d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
         />
       </svg>
-    ),
-  },
-  {
-    title: "გრძელვადიანი განვითარება",
-    description:
-      "ვაშენებთ პროექტებს, რომლებიც წლების შემდეგაც შეინარჩუნებენ ღირებულებას.",
-    icon: (
+  ),
+  (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-7 h-7"
@@ -109,41 +86,7 @@ const values = [
           d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
         />
       </svg>
-    ),
-  },
-];
-
-const timeline = [
-  {
-    year: "2018",
-    title: "კომპანიის დაარსება",
-    description:
-      "Green Build დაარსდა მცირე გუნდით და დიდი ხედვით — შეექმნა მდგრადი საცხოვრებელი სივრცეები.",
-  },
-  {
-    year: "2020",
-    title: "პირველი პროექტის დასრულება",
-    description:
-      "გრინ ჰაუსი I წარმატებით ჩაბარდა ვაკეში — 48 ბინა და 100% გაყიდვა.",
-  },
-  {
-    year: "2022",
-    title: "100+ გაყიდული ბინა",
-    description:
-      "მიღწეული იქნა 100 გაყიდული ბინის ნიშნული. კომპანიამ გააფართოვა საქმიანობა სხვადასხვა უბანში.",
-  },
-  {
-    year: "2024",
-    title: "ენერგოეფექტურობის სერტიფიკატი",
-    description:
-      "კომპანიამ მიიღო ენერგოეფექტური მშენებლობის საერთაშორისო სერტიფიკატი.",
-  },
-  {
-    year: "2026",
-    title: "250+ ბინა და 5 პროექტი",
-    description:
-      "დღეს Green Build არის ერთ-ერთი წამყვანი დეველოპერი 5 აქტიური პროექტით და 1500+ კმაყოფილი მომხმარებლით.",
-  },
+  ),
 ];
 
 const About = () => {
@@ -151,6 +94,19 @@ const About = () => {
   const timelineRef = useRef<HTMLElement>(null);
   const [valuesVisible, setValuesVisible] = useState(false);
   const [timelineVisible, setTimelineVisible] = useState(false);
+  const t = useText();
+
+  const values = valueIcons.map((icon, i) => ({
+    icon,
+    title: t(`about.value${i + 1}.title`),
+    description: t(`about.value${i + 1}.description`),
+  }));
+
+  const timeline = [1, 2, 3, 4, 5].map((n) => ({
+    year: t(`about.timeline${n}.year`),
+    title: t(`about.timeline${n}.title`),
+    description: t(`about.timeline${n}.description`),
+  }));
 
   useEffect(() => {
     const observerCallback =
@@ -180,27 +136,14 @@ const About = () => {
       {/* Hero */}
       <section className="relative bg-white text-[#1f3f3a] overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6">ჩვენს შესახებ</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">{t("about.title")}</h1>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            10 წელი ხარისხისა და განვითარების გზაზე
+            {t("about.subtitle")}
           </h2>
           <div className="space-y-4 text-base md:text-lg text-[#1f3f3a] text-left max-w-3xl mx-auto">
-            <p>
-              გრინბილდი უკვე 10 წელია სამშენებლო სფეროში ოპერირებს და
-              მომხმარებლებს სთავაზობს თანამედროვე, უსაფრთხო და კომფორტულ
-              საცხოვრებელ გარემოს.
-            </p>
-            <p>
-              ჩვენი საქმიანობა ეფუძნება პასუხისმგებლობას, პროფესიონალიზმსა და
-              ხარისხის მაღალ სტანდარტებს. თითოეული პროექტი იქმნება იმ იდეით, რომ
-              მობინადრეებმა მიიღონ არა მხოლოდ ბინა, არამედ გარემო, სადაც
-              კომფორტულად იცხოვრებენ წლების განმავლობაში.
-            </p>
-            <p>
-              ჩვენ მუდმივად ვვითარდებით, ვნერგავთ თანამედროვე სამშენებლო
-              მიდგომებს და ვგეგმავთ ახალ პროექტებს, რომლებიც კიდევ უფრო მეტ
-              ადამიანს მისცემს შესაძლებლობას შეიძინოს ხარისხიანი საცხოვრებელი.
-            </p>
+            <p>{t("about.paragraph1")}</p>
+            <p>{t("about.paragraph2")}</p>
+            <p>{t("about.paragraph3")}</p>
           </div>
         </div>
       </section>
@@ -216,16 +159,16 @@ const About = () => {
             }`}
           >
             <h2 className="text-2xl md:text-4xl font-bold text-[#1f3f3a] mb-3">
-              ჩვენი ღირებულებები
+              {t("about.values.heading")}
             </h2>
             <p className="text-[#1f3f3a] text-base md:text-lg max-w-2xl mx-auto">
-              ყველაფერი რასაც ვაკეთებთ ეფუძნება ხუთ ძირითად პრინციპს
+              {t("about.values.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
               <div
-                key={v.title}
+                key={i}
                 className={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center
                   hover:shadow-lg hover:-translate-y-1 transition-all duration-300
                   ${valuesVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0"}`}
@@ -257,10 +200,10 @@ const About = () => {
             }`}
           >
             <h2 className="text-2xl md:text-4xl font-bold text-[#1f3f3a] mb-3">
-              ჩვენი გზა
+              {t("about.timeline.heading")}
             </h2>
             <p className="text-[#1f3f3a] text-base md:text-lg">
-              კომპანიის განვითარების მნიშვნელოვანი ეტაპები
+              {t("about.timeline.subtitle")}
             </p>
           </div>
 
@@ -269,7 +212,7 @@ const About = () => {
 
             {timeline.map((item, i) => (
               <div
-                key={item.year}
+                key={i}
                 className={`relative mb-10 last:mb-0 md:flex md:items-start ${
                   i % 2 === 0 ? "md:flex-row-reverse" : ""
                 } ${timelineVisible ? "animate-[fadeSlideUp_0.6s_ease-out_both]" : "opacity-0"}`}

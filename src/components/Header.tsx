@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-
-const navLinks = [
-  { to: "/", label: "მთავარი" },
-  { to: "/about", label: "ჩვენს შესახებ" },
-  { to: "/projects", label: "პროექტები" },
-  { to: "/news", label: "სიახლეები" },
-  { to: "/reviews", label: "შეფასებები" },
-];
+import { useText } from "../hooks/siteTexts";
+import { navLinks } from "../data/navLinks";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const t = useText();
 
   return (
     <>
@@ -21,7 +16,7 @@ const Header = () => {
       >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <NavLink to="/" className="text-xl font-bold text-white">
-            GreenBuild
+            {t("brand.name")}
           </NavLink>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -38,16 +33,16 @@ const Header = () => {
                   }`
                 }
               >
-                {link.label}
+                {t(link.textKey)}
               </NavLink>
             ))}
           </nav>
 
           <a
-            href="tel:+995322022080"
+            href={`tel:${t("nav.contactPhone")}`}
             className="hidden md:inline-flex py-2 px-4 rounded-lg text-sm font-medium border border-white text-white hover:bg-white/10 transition-colors duration-300"
           >
-            დაგვიკავშირდით
+            {t("nav.contactCta")}
           </a>
 
           <button

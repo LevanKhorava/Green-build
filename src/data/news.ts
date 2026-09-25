@@ -1,16 +1,20 @@
 import greenBuildImg from "../assets/greenBuildActive.jpg";
 
 export interface NewsItem {
-  id: number;
+  id: string;
   title: string;
   description: string;
   date: string;
   imageUrl: string;
 }
 
+/**
+ * Fallback content, shown when Supabase is not configured or unreachable.
+ * Everything published through /admin lives in the database instead.
+ */
 export const news: NewsItem[] = [
   {
-    id: 1,
+    id: "static-1",
     title: "გრინბილდი ახალ პროექტზე მუშაობას იწყებს",
     description:
       "მალე მომხმარებლებს შესაძლებლობა ექნებათ გაიცნონ კომპანიის ახალი საცხოვრებელი პროექტი.",
@@ -19,7 +23,7 @@ export const news: NewsItem[] = [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
   },
   {
-    id: 2,
+    id: "static-2",
     title: "ვაზისუბნის პროექტი – დასრულებული საცხოვრებელი სივრცე",
     description:
       "ალუბლების ქუჩაზე მდებარე პროექტი დასრულებულია და მზად არის საცხოვრებლად.",
@@ -27,7 +31,7 @@ export const news: NewsItem[] = [
     imageUrl: greenBuildImg,
   },
   {
-    id: 3,
+    id: "static-3",
     title: "გადახდის მოქნილი პირობები მომხმარებლებისთვის",
     description:
       "გრინბილდი აგრძელებს მომხმარებლებზე მორგებული შეთავაზებების შემუშავებას.",

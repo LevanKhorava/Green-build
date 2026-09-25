@@ -1,4 +1,8 @@
+import { useText } from "../hooks/siteTexts";
+
 const Footer = () => {
+  const t = useText();
+
   return (
     <footer className="bg-[#26b462] text-white mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-10">
@@ -20,12 +24,12 @@ const Footer = () => {
               </svg>
             </div>
             <div>
-              <p className="text-sm text-[#e6f4ec]/60">ტელეფონი</p>
+              <p className="text-sm text-[#e6f4ec]/60">{t("footer.phone.label")}</p>
               <a
-                href="tel:+995322022080"
+                href={`tel:${t("footer.phone.tel")}`}
                 className="text-gray-200 font-medium hover:text-white transition-colors"
               >
-                032 2 02 20 80
+                {t("footer.phone.value")}
               </a>
             </div>
           </div>
@@ -47,8 +51,8 @@ const Footer = () => {
               </svg>
             </div>
             <div>
-              <p className="text-sm text-[#e6f4ec]/60">ელ. ფოსტა</p>
-              <p className="text-gray-200 font-medium">info@greenbuild.ge</p>
+              <p className="text-sm text-[#e6f4ec]/60">{t("footer.email.label")}</p>
+              <p className="text-gray-200 font-medium">{t("footer.email.value")}</p>
             </div>
           </div>
 
@@ -69,8 +73,8 @@ const Footer = () => {
               </svg>
             </div>
             <div>
-              <p className="text-sm text-[#e6f4ec]/60">სამუშაო საათები</p>
-              <p className="text-gray-200 font-medium">10:00 – 18:00</p>
+              <p className="text-sm text-[#e6f4ec]/60">{t("footer.hours.label")}</p>
+              <p className="text-gray-200 font-medium">{t("footer.hours.value")}</p>
             </div>
           </div>
 
@@ -97,8 +101,8 @@ const Footer = () => {
               </svg>
             </div>
             <div>
-              <p className="text-sm text-[#e6f4ec]/60">მისამართი</p>
-              <p className="text-gray-200 font-medium">თბილისი, საქართველო</p>
+              <p className="text-sm text-[#e6f4ec]/60">{t("footer.address.label")}</p>
+              <p className="text-gray-200 font-medium">{t("footer.address.value")}</p>
             </div>
           </div>
         </div>
@@ -107,11 +111,11 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#e6f4ec]/60">
-            &copy; {new Date().getFullYear()} Green Build. All rights reserved.
+            &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <div className="flex items-center gap-3">
             <a
-              href="https://www.facebook.com/share/1EEkNkhmok/?mibextid=wwXIfr"
+              href={t("footer.facebook.url")}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"

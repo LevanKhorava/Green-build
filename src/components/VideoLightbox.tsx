@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { embedUrl } from "../data/videos";
+import { useText } from "../hooks/siteTexts";
 
 interface VideoLightboxProps {
   youtubeId: string | null;
@@ -7,6 +8,8 @@ interface VideoLightboxProps {
 }
 
 const VideoLightbox = ({ youtubeId, onClose }: VideoLightboxProps) => {
+  const t = useText();
+
   useEffect(() => {
     if (!youtubeId) return;
 
@@ -41,7 +44,7 @@ const VideoLightbox = ({ youtubeId, onClose }: VideoLightboxProps) => {
         <button
           type="button"
           onClick={onClose}
-          aria-label="დახურვა"
+          aria-label={t("video.lightbox.close")}
           className="absolute top-3 right-3 z-10 w-10 h-10 flex items-center justify-center
             rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
         >

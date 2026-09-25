@@ -1,19 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { navLinks } from "../data/navLinks";
+import { useText } from "../hooks/siteTexts";
 
 interface MobileSidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const navLinks = [
-  { to: "/", label: "მთავარი" },
-  { to: "/about", label: "ჩვენს შესახებ" },
-  { to: "/projects", label: "პროექტები" },
-  { to: "/news", label: "სიახლეები" },
-  { to: "/reviews", label: "შეფასებები" },
-];
-
 const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
+  const t = useText();
+
   return (
     <>
       {/* Overlay */}
@@ -69,7 +65,7 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
                 }`
               }
             >
-              {link.label}
+              {t(link.textKey)}
             </NavLink>
           ))}
         </nav>
@@ -77,10 +73,10 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
         {/* Contact button */}
         <div className="px-4 mt-6">
           <a
-            href="tel:+995322022080"
+            href={`tel:${t("nav.contactPhone")}`}
             className="block w-full text-center bg-[#1f3f3a] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#1f3f3a]/80 transition-colors"
           >
-            დაგვიკავშირდით
+            {t("nav.contactCta")}
           </a>
         </div>
       </div>

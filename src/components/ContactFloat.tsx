@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+} from "../config";
+import { useText } from "../hooks/siteTexts";
 
 const ContactFloat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +14,7 @@ const ContactFloat = () => {
   const [error, setError] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useText();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,16 +24,16 @@ const ContactFloat = () => {
 
     try {
       await emailjs.sendForm(
-        "service_vwt8dxq",
-        "template_vev4v7k",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         formRef.current,
-        { publicKey: "2u3CkghhN1yR_Bn0F" },
+        { publicKey: EMAILJS_PUBLIC_KEY },
       );
       setSubmitted(true);
       formRef.current.reset();
       setTimeout(() => setSubmitted(false), 3000);
     } catch {
-      setError("გაგზავნა ვერ მოხერხდა. სცადეთ თავიდან.");
+      setError(t("contact.error"));
     } finally {
       setSending(false);
     }
@@ -70,7 +77,7 @@ const ContactFloat = () => {
                 d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
               />
             </svg>
-            დაგვიტოვეთ ნომერი
+            {t("contact.button")}
           </span>
         )}
       </button>
@@ -87,10 +94,10 @@ const ContactFloat = () => {
             <div className="bg-[#1f3f3a] px-5 py-4 flex items-center justify-between">
               <div>
                 <h3 className="text-white font-bold text-sm">
-                  დაგვიტოვეთ ნომერი
+                  {t("contact.heading")}
                 </h3>
                 <p className="text-[#e6f4ec] text-xs mt-0.5">
-                  ჩვენ მალე დაგიკავშირდებით
+                  {t("contact.subtitle")}
                 </p>
               </div>
               <button
@@ -118,7 +125,7 @@ const ContactFloat = () => {
             <div className="p-5">
               {submitted ? (
                 <div className="bg-[#e6f4ec] border border-[#1f3f3a]/20 text-[#1f3f3a] rounded-lg p-4 text-center text-sm">
-                  მადლობა! ჩვენ მალე დაგიკავშირდებით.
+                  {t("contact.success")}
                 </div>
               ) : (
                 <form
@@ -128,7 +135,7 @@ const ContactFloat = () => {
                 >
                   <div>
                     <label className="block text-xs font-medium text-[#333333] mb-1">
-                      სახელი
+                      {t("contact.field.firstName")}
                     </label>
                     <input
                       type="text"
@@ -139,7 +146,7 @@ const ContactFloat = () => {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-[#333333] mb-1">
-                      გვარი
+                      {t("contact.field.lastName")}
                     </label>
                     <input
                       type="text"
@@ -150,7 +157,7 @@ const ContactFloat = () => {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-[#333333] mb-1">
-                      ტელეფონის ნომერი
+                      {t("contact.field.phone")}
                     </label>
                     <input
                       type="tel"
@@ -170,7 +177,7 @@ const ContactFloat = () => {
                     disabled={sending}
                     className="w-full bg-[#1f3f3a] text-white font-semibold py-2.5 rounded-lg text-sm hover:bg-[#1f3f3a]/80 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {sending ? "იგზავნება..." : "გაგზავნა"}
+                    {sending ? t("contact.sending") : t("contact.submit")}
                   </button>
                 </form>
               )}

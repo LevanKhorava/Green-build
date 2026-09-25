@@ -1,5 +1,6 @@
 import type { Video } from "../data/videos";
 import { thumbnailUrl } from "../data/videos";
+import { useText } from "../hooks/siteTexts";
 
 interface VideoCardProps {
   video: Video;
@@ -7,6 +8,8 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ video, onPlay }: VideoCardProps) => {
+  const t = useText();
+
   return (
     <button
       type="button"
@@ -17,7 +20,7 @@ const VideoCard = ({ video, onPlay }: VideoCardProps) => {
     >
       <div className="px-5 pt-4 pb-3">
         <p className="text-xs text-[#1f3f3a]/70 uppercase tracking-wide">
-          გრინბილდის მაცხოვრებელი
+          {t("video.card.author")}
         </p>
         <h3 className="text-base font-bold text-[#333333] mt-0.5">
           {video.author}

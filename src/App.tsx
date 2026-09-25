@@ -17,6 +17,9 @@ import ProjectDetail from "./pages/ProjectDetail";
 import FloorDetail from "./pages/FloorDetail";
 import News from "./pages/News";
 import Videos from "./pages/Videos";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminNews from "./pages/admin/AdminNews";
+import AdminTexts from "./pages/admin/AdminTexts";
 
 function App() {
   return (
@@ -31,6 +34,12 @@ function App() {
         <Route path="/projects/:id/floor/:floorId" element={<FloorDetail />} />
         <Route path="/news" element={<News />} />
         <Route path="/reviews" element={<Videos />} />
+      </Route>
+
+      {/* Admin — own shell, no public header/footer */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminNews />} />
+        <Route path="texts" element={<AdminTexts />} />
       </Route>
     </Routes>
     </>

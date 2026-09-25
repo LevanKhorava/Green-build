@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { news, formatDate } from "../data/news";
+import { formatDate } from "../data/news";
+import { useNews } from "../hooks/useNews";
+import { useText } from "../hooks/siteTexts";
 import type { NewsItem } from "../data/news";
 
 const NewsCard = ({
@@ -69,6 +71,8 @@ const NewsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { items } = useNews();
+  const t = useText();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -100,10 +104,10 @@ const NewsSection = () => {
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] mb-3 sm:mb-4">
-            სიახლეები
+            {t("home.news.heading")}
           </h2>
           <p className="text-[#1f3f3a] text-base sm:text-lg max-w-2xl mx-auto">
-            გაეცანით ჩვენს უახლეს ამბებს და მიღწევებს
+            {t("home.news.subtitle")}
           </p>
         </div>
 
@@ -115,7 +119,7 @@ const NewsSection = () => {
           <Swiper
             modules={[Autoplay]}
             centeredSlides={true}
-            loop={news.length > 3}
+            loop={items.length > 3}
             speed={600}
             autoplay={{
               delay: 2000,
@@ -129,7 +133,7 @@ const NewsSection = () => {
               1024: { slidesPerView: 3, spaceBetween: 32 },
             }}
           >
-            {news.map((item, index) => (
+            {items.map((item, index) => (
               <SwiperSlide key={item.id}>
                 <NewsCard item={item} isActive={index === activeIndex} />
               </SwiperSlide>
@@ -149,7 +153,7 @@ const NewsSection = () => {
               hover:bg-[#1f3f3a] hover:text-white hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
-            მეტის ნახვა
+            {t("home.news.cta")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"

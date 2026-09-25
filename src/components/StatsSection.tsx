@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useText } from "../hooks/siteTexts";
 
 interface StatItem {
   label: string;
@@ -7,12 +8,8 @@ interface StatItem {
   suffix?: string;
 }
 
-const stats: StatItem[] = [
-  { label: "აშენებული შენობა", value: 3 },
-  { label: "გაყიდული ბინა", value: 250, suffix: "+" },
-  { label: "კმაყოფილი მომხმარებელი", value: 1500, suffix: "+" },
-  { label: "წლიანი გამოცდილება", value: 8 },
-];
+/** The four counters, each editable in /admin/texts. */
+const STAT_SLOTS = [1, 2, 3, 4];
 
 function useCountUp(target: number, isVisible: boolean) {
   const [count, setCount] = useState(0);
@@ -85,6 +82,13 @@ const StatCard = ({
 const StatsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const t = useText();
+
+  const stats: StatItem[] = STAT_SLOTS.map((n) => ({
+    label: t(`home.stats.item${n}.label`),
+    value: Number(t(`home.stats.item${n}.value`)) || 0,
+    suffix: t(`home.stats.item${n}.suffix`),
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,15 +120,14 @@ const StatsSection = () => {
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] max-w-3xl mx-auto">
-            წლების განმავლობაში ჩვენ შევქმენით საიმედო სივრცეები ათასობით
-            ოჯახისთვის
+            {t("home.stats.heading")}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-14">
           {stats.map((stat, index) => (
             <StatCard
-              key={stat.label}
+              key={index}
               stat={stat}
               isVisible={isVisible}
               index={index}
@@ -134,11 +137,7 @@ const StatsSection = () => {
 
         <div className="mb-10 sm:mb-14 bg-[#f7f9f8] border border-[#1f3f3a]/15 rounded-2xl p-6 sm:p-8 md:p-10 w-full">
           <p className="text-base md:text-lg leading-relaxed text-[#1f3f3a] text-left max-w-3xl mx-auto">
-            10-წლიანი გამოცდილებით სამშენებლო სფეროში, გრინბილდი ქმნის
-            თანამედროვე, კომფორტულ და უსაფრთხო საცხოვრებელ გარემოს. ვაზისუბანში
-            ჩვენი დასრულებული და შესახლებული პროექტი გრინბილდის ხარისხისა და
-            სანდოობის კიდევ ერთი დასტურია. კომპანია აქტიურად მუშაობს ახალ
-            პროექტზე, რომელთა შესახებ ინფორმაციაც მალე გახდება ხელმისაწვდომი.
+            {t("home.stats.paragraph")}
           </p>
         </div>
 
@@ -153,7 +152,7 @@ const StatsSection = () => {
               hover:bg-[#1f3f3a]/80 hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
-            მეტის ნახვა
+            {t("home.stats.cta")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"

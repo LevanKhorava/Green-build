@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { videos } from "../data/videos";
 import VideoCard from "./VideoCard";
 import VideoLightbox from "./VideoLightbox";
+import { useText } from "../hooks/siteTexts";
 
 const previewVideos = videos.slice(0, 3);
 
@@ -10,6 +11,7 @@ const VideosSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const t = useText();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,10 +36,10 @@ const VideosSection = () => {
           }`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f3f3a] mb-3 sm:mb-4">
-            შეფასებები
+            {t("home.videos.heading")}
           </h2>
           <p className="text-[#1f3f3a] text-base sm:text-lg max-w-2xl mx-auto">
-            რას ამბობენ ჩვენი მომხმარებლები
+            {t("home.videos.subtitle")}
           </p>
         </div>
 
@@ -65,7 +67,7 @@ const VideosSection = () => {
               hover:bg-[#1f3f3a]/80 hover:shadow-lg hover:scale-105
               active:scale-95 transition-all duration-300"
           >
-            ყველა შეფასება
+            {t("home.videos.cta")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"

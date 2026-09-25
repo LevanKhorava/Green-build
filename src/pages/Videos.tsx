@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { videos } from "../data/videos";
 import VideoCard from "../components/VideoCard";
 import VideoLightbox from "../components/VideoLightbox";
+import { useText } from "../hooks/siteTexts";
 
 const Videos = () => {
   const gridRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const t = useText();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,11 +28,9 @@ const Videos = () => {
     <div>
       <section className="relative bg-white text-[#1f3f3a] overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-3">შეფასებები</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-3">{t("reviewsPage.title")}</h1>
           <p className="text-[#1f3f3a] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            ჩვენთვის ყველაზე მნიშვნელოვანი მომხმარებლის ნდობა და კმაყოფილებაა.
-            სწორედ ამიტომ თითოეული დასრულებული პროექტი რეალური ადამიანების
-            გამოცდილებით ფასდება.
+            {t("reviewsPage.intro")}
           </p>
         </div>
       </section>
