@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { videos } from "../data/videos";
 import VideoCard from "../components/VideoCard";
 import VideoLightbox from "../components/VideoLightbox";
 import { useText } from "../hooks/siteTexts";
+import { useReviews } from "../hooks/useReviews";
 
 const Videos = () => {
   const gridRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const t = useText();
+  const { items } = useReviews();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,7 +39,7 @@ const Videos = () => {
       <section ref={gridRef} className="bg-white py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {videos.map((video, i) => (
+            {items.map((video, i) => (
               <div
                 key={video.id}
                 className={

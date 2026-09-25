@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { videos } from "../data/videos";
 import VideoCard from "./VideoCard";
 import VideoLightbox from "./VideoLightbox";
 import { useText } from "../hooks/siteTexts";
-
-const previewVideos = videos.slice(0, 3);
+import { useReviews } from "../hooks/useReviews";
 
 const VideosSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const t = useText();
+  const { items } = useReviews();
+  const previewVideos = items.slice(0, 3);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -20,6 +20,7 @@ import Videos from "./pages/Videos";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminNews from "./pages/admin/AdminNews";
 import AdminTexts from "./pages/admin/AdminTexts";
+import AdminReviews from "./pages/admin/AdminReviews";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       {/* Admin — own shell, no public header/footer */}
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminNews />} />
+        <Route path="reviews" element={<AdminReviews />} />
         <Route path="texts" element={<AdminTexts />} />
       </Route>
     </Routes>

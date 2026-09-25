@@ -302,8 +302,6 @@ export const textGroups: TextGroup[] = [
     fields: [
       { key: "reviewsPage.title", label: "სათაური" },
       { key: "reviewsPage.intro", label: "შესავალი", multiline: true },
-      { key: "video.card.author", label: "ვიდეო ბარათის წარწერა" },
-      { key: "video.lightbox.close", label: "დახურვის ღილაკი" },
     ],
   },
   {

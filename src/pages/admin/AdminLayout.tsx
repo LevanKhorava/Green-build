@@ -1,14 +1,27 @@
+import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { isSupabaseConfigured } from "../../lib/supabase";
+import AdminGate from "./AdminGate";
+import { forgetUnlocked } from "./adminSession";
 
 const adminLinks = [
   { to: "/admin", label: "სიახლეები", end: true },
+  { to: "/admin/reviews", label: "შეფასებები", end: false },
   { to: "/admin/texts", label: "ტექსტები", end: false },
 ];
 
-/** Chrome shared by every /admin page. Open access — no login. */
+/** Chrome shared by every /admin page, behind the password gate. */
 const AdminLayout = () => {
+  // Remounts the gate after locking, so the password form comes back.
+  const [gateKey, setGateKey] = useState(0);
+
+  const handleLock = () => {
+    forgetUnlocked();
+    setGateKey((n) => n + 1);
+  };
+
   return (
+    <AdminGate key={gateKey}>
     <div className="min-h-dvh bg-[#f5f7f6]">
       <header className="bg-[#1f3f3a] text-white">
         <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
@@ -33,12 +46,17 @@ const AdminLayout = () => {
               ))}
             </nav>
           </div>
-          <Link
-            to="/"
-            className="text-sm text-white/80 hover:text-white shrink-0"
-          >
-            საიტზე დაბრუნება
-          </Link>
+          <div className="flex items-center gap-4 shrink-0">
+            <Link to="/" className="text-sm text-white/80 hover:text-white">
+              საიტზე დაბრუნება
+            </Link>
+            <button
+              onClick={handleLock}
+              className="text-sm border border-white/30 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              გასვლა
+            </button>
+          </div>
         </div>
       </header>
 
@@ -53,6 +71,7 @@ const AdminLayout = () => {
         <Outlet />
       </main>
     </div>
+    </AdminGate>
   );
 };
 
