@@ -96,7 +96,7 @@ export const floorsA: Floor[] = [
       {
         id: 40,
         label: "ბინა 40",
-        // Same layout as 23, one storey below.
+        // Reuses the renders of 23: the same layout one storey down (40 = 23 + 17).
         renderKey: "23",
         rooms: 2,
         size: 53.4,

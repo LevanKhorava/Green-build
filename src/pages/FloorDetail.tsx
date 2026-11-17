@@ -40,6 +40,7 @@ const FloorDetail = () => {
   const [lightboxImgs, setLightboxImgs] = useState<string[]>([]);
   // What had focus when the lightbox opened, so closing it puts the visitor back there.
   const lightboxOpener = useRef<Element | null>(null);
+  const lightboxEl = useRef<HTMLDivElement>(null);
 
   const openApartment = (apartment: Apartment) => {
     lightboxOpener.current = document.activeElement;
@@ -54,7 +55,16 @@ const FloorDetail = () => {
 
   useEffect(() => {
     if (!lightboxOpen) return;
+    // Move the keyboard into the lightbox; otherwise Tab and Enter keep working the
+    // floor plan hidden behind it.
+    lightboxEl.current?.focus({ preventScroll: true });
     const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Tab") {
+        // The close button is the only control in here.
+        e.preventDefault();
+        lightboxEl.current?.querySelector("button")?.focus();
+        return;
+      }
       if (e.key !== "Escape") return;
       setLightboxOpen(false);
       focusWithoutScrolling(lightboxOpener.current);
@@ -271,7 +281,12 @@ const FloorDetail = () => {
 
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 animate-[fadeSlideUp_0.3s_ease-out_both]"
+          ref={lightboxEl}
+          role="dialog"
+          aria-modal="true"
+          aria-label="ბინის გეგმა"
+          tabIndex={-1}
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 outline-none animate-[fadeSlideUp_0.3s_ease-out_both]"
           onClick={closeLightbox}
         >
           <button

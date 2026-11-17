@@ -533,14 +533,14 @@ function gate(sheet, shapes, { fillNumber, corridor }) {
     });
     const covered = own / (fillTotal.get(shape.number) ?? 1);
     if (covered < 0.99) fail(`apartment ${shape.number}: only ${(100 * covered).toFixed(1)} % of its fill is inside its outline`);
-    if (foreign / pixels > 0.003) fail(`apartment ${shape.number}: ${(100 * foreign / pixels).toFixed(2)} % of its outline is a neighbour's fill`);
+    if (foreign > 0) fail(`apartment ${shape.number}: ${foreign} px of its outline are a neighbour's fill`);
     if (publicWhite / pixels > 0.005) fail(`apartment ${shape.number}: ${(100 * publicWhite / pixels).toFixed(2)} % of its outline is corridor`);
     if (shape.rings.length > 1 && shape.number !== 122) fail(`apartment ${shape.number}: unexpected hole`);
     for (const ring of shape.rings) {
       for (let i = 0; i < ring.length; i++) if (isNeedle(ring, i)) fail(`apartment ${shape.number}: spike at ${ring[i].map((v) => v * SCALE)}`);
     }
   }
-  if (overlap > 8) fail(`outlines overlap by ${overlap} px`);
+  if (overlap > 0) fail(`outlines overlap by ${overlap} px`);
 
   const hits = (xPct, yPct) => shapes.filter((s) => contains(s.rings, (xPct / 100) * W, (yPct / 100) * H)).map((s) => s.number);
   for (const [x, y, number] of table) {
