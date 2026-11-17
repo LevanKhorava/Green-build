@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { getFloorById, statusLabels } from "../data/floors";
+import FloorPlanInteractive from "../components/FloorPlanInteractive";
+import { getFloorById, statusLabels, type Apartment } from "../data/floors";
+import { getFloorPlan } from "../data/floorPlans";
 import flatImg from "../assets/flat.avif";
 
 const flatImages = import.meta.glob("../assets/*.avif", {
@@ -22,11 +24,44 @@ const getImagesForLabel = (label: string): string[] => {
   return imgs.length > 0 ? imgs : [flatImg];
 };
 
+const getApartmentImages = (apartment: Apartment): string[] =>
+  getImagesForLabel(apartment.renderKey ?? apartment.label);
+
+const focusWithoutScrolling = (element: Element | null) => {
+  if (element instanceof HTMLElement || element instanceof SVGElement) {
+    element.focus({ preventScroll: true });
+  }
+};
+
 const FloorDetail = () => {
   const { id, floorId } = useParams<{ id: string; floorId: string }>();
   const floor = getFloorById(Number(floorId));
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImgs, setLightboxImgs] = useState<string[]>([]);
+  // What had focus when the lightbox opened, so closing it puts the visitor back there.
+  const lightboxOpener = useRef<Element | null>(null);
+
+  const openApartment = (apartment: Apartment) => {
+    lightboxOpener.current = document.activeElement;
+    setLightboxImgs(getApartmentImages(apartment));
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    focusWithoutScrolling(lightboxOpener.current);
+  };
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setLightboxOpen(false);
+      focusWithoutScrolling(lightboxOpener.current);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxOpen]);
 
   if (!floor) {
     return (
@@ -58,6 +93,11 @@ const FloorDetail = () => {
       </div>
     );
   }
+
+  const plan = getFloorPlan(floor);
+  const planHasAvailable = plan?.units.some(
+    (unit) => unit.apartment && !unit.apartment.sold,
+  );
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12 bg-[#f7f9f8]">
@@ -105,6 +145,27 @@ const FloorDetail = () => {
         </p>
       </div>
 
+      {/* Interactive floor plan: the whole storey, both blocks */}
+      {plan && (
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 md:p-8 mt-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-2">
+            აირჩიეთ ბინა
+          </h2>
+          <p className="text-sm sm:text-base text-[#333333] mb-4 sm:mb-6">
+            {planHasAvailable
+              ? "მწვანე კონტურით მონიშნული ბინები ხელმისაწვდომია. დააწკაპუნეთ ბინაზე დეტალური ინფორმაციის სანახავად."
+              : "ამ სართულზე ყველა ბინა გაყიდულია."}
+          </p>
+          <div className="-mx-4 sm:mx-0 sm:rounded-xl sm:overflow-hidden sm:border sm:border-gray-100">
+            <FloorPlanInteractive
+              key={plan.storey}
+              plan={plan}
+              onApartmentClick={openApartment}
+            />
+          </div>
+        </div>
+      )}
+
       <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mt-10 mb-6">
         დარჩენილი ბინები
       </h2>
@@ -117,14 +178,11 @@ const FloorDetail = () => {
               key={apt.id}
               className="rounded-2xl shadow-sm border border-gray-100 bg-white overflow-hidden transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] cursor-pointer hover:shadow-lg hover:-translate-y-1"
               style={{ animationDelay: `${i * 80}ms` }}
-              onClick={() => {
-                setLightboxImgs(getImagesForLabel(apt.label));
-                setLightboxOpen(true);
-              }}
+              onClick={() => openApartment(apt)}
             >
               <div className="h-44 overflow-hidden">
                 <img
-                  src={getImagesForLabel(apt.label)[0]}
+                  src={getApartmentImages(apt)[0]}
                   alt={apt.label}
                   className="w-full h-full object-cover"
                 />
@@ -214,10 +272,11 @@ const FloorDetail = () => {
       {lightboxOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 animate-[fadeSlideUp_0.3s_ease-out_both]"
-          onClick={() => setLightboxOpen(false)}
+          onClick={closeLightbox}
         >
           <button
-            onClick={() => setLightboxOpen(false)}
+            onClick={closeLightbox}
+            aria-label="დახურვა"
             className="absolute top-4 right-4 z-20 text-white/70 hover:text-white transition-colors cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -236,9 +295,12 @@ const FloorDetail = () => {
               onSwiper={(swiper) => {
                 if (swiper.slides.length > 1) {
                   const base = swiper.translate;
+                  // The lightbox may already be closed when these fire.
                   window.setTimeout(() => {
+                    if (swiper.destroyed) return;
                     swiper.translateTo(base - 70, 450, false, false);
                     window.setTimeout(() => {
+                      if (swiper.destroyed) return;
                       swiper.translateTo(base, 450, false, false);
                     }, 550);
                   }, 450);

@@ -1,6 +1,9 @@
 export interface Apartment {
+  /** Apartment number as printed on the floor plan — links the flat to its hotspot. */
   id: number;
   label: string;
+  /** Render set to show (file name in src/assets) when it is not the flat's own number. */
+  renderKey?: string;
   rooms: number;
   size: number;
   bathrooms: number;
@@ -91,8 +94,10 @@ export const floorsA: Floor[] = [
     block: "B",
     apartments: [
       {
-        id: 231,
-        label: "ბინა 23",
+        id: 40,
+        label: "ბინა 40",
+        // Same layout as 23, one storey below.
+        renderKey: "23",
         rooms: 2,
         size: 53.4,
         bathrooms: 1,
